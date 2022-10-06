@@ -20,7 +20,7 @@ doc = BeautifulSoup(page.text, "html.parser")
 #get all the link from the returned search result
 c = doc.find(text=re.compile('citations'))
 result_list = re.findall(':&q;/api/citations/(.+?)/downloads/', c)
-
+print(result_list)
 #remove duplicate
 #res = [*set(b)]
 res = []
