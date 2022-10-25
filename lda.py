@@ -36,7 +36,6 @@ print(papers['text'].head())
 
 
 stop_words = stopwords.words('english')
-stop_words.extend(['from', 'subject', 're', 'edu', 'use'])
 
 def sent_to_words(sentences):
     for sentence in sentences:
@@ -66,7 +65,7 @@ print(corpus[:1][0][:30])
 
 
 
-lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus[:-1],
+lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,
                                            id2word=id2word,
                                            num_topics=20, 
                                            random_state=100,
