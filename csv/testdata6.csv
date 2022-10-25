@@ -1,0 +1,577 @@
+,text
+0,"1 
+Climate Data Initiative: A G eocuration  Effort  to Support Climate 
+Resilience  
+ 
+Rahul Ramachandran1, Kaylin Bugbee2, Curt Tilmes3 and Ana Pinheiro 
+Privette3 
+1 NASA/MSFC  
+2 University of Alabama in Huntsville  
+3 NASA/GSFC  
+ 
+ 
+Abstract  
+ 
+Curation is traditionally defined as the process of collecting and organizing information 
+around a common subject matter or a topic of interest and typically occurs in museums, 
+art galleries, and libraries.  The task of organizing data around specific topi cs or themes 
+is a vibrant and growing effort in the biological sciences but to date this effort has not 
+been actively pursued in the Earth sciences.  In this paper, we introduce the concept of 
+geocuration and define it as the act of searching, selecting, an d synthesizing Earth 
+science data/metadata and information from across disciplines and repositories into a 
+single, cohesive, and useful compendium  We present the Climate Data Initiative (CDI) 
+project  as an exemplar example. The CDI project is a systematic effort to manually curate 
+and share openly available climate data from various federal agencies. CDI is a broad 
+multi -agency effort of the U.S. government and seeks to leverage the extensive existing 
+federal climate -relevant data to stimulate innovation and private -sector entrepreneurship 
+to support national climate -change preparedness.  We describe  the geocuration process 
+used  in CDI project , lessons learned, and suggestions to improve similar geocurat ion 
+efforts  in the future.  
+ 
+ 
+1.Introduction  
+ 
+The definition of curation can vary depending on one’s perspective. Curation is 
+traditionally  defined as the process of collecting and organizing information around a 
+common subject matter or a topic of interest  and typically  occurs in museums, art 2 
+galleries, and libraries. In the library community, t he curation  process  has become more 
+nuanced  with the advent of digital content . The digital l ibrary community define s curation 
+as “actions people take to maintain an d add value to digital information over its lifecycle, 
+including the processes used when creating digital content”  (Walters, 2011).  Similarly, 
+Lord et al . (2004) define curation as the “activity of managing and promoting the use of 
+data from its point of creation, to ensure it is fit for contemporary purpose, and available”. 
+A cornerstone  component of this curation activity is archiving , where by selected  digital 
+resource s are stored and made accessible  for future use .  
+ 
+Like the library community, the Earth s cience data communities  also perform  curation  
+activities  but under the broader umbrella of data stewardship (Peng et al. 2015) . These 
+data stewardship activiti es support the data life cycle  by enabling data preservation , 
+accessibility, usability, and sustainability, thereby ensuring quality and reproducibility.  The 
+task of organizing data around specific topics or themes is a vibrant and growing effort in 
+the bi ological sciences (Howe and Yon, 2008) but to date this effort has not been actively 
+pursued in the Earth sciences.  One reason for this  activity gap  is that most Earth science 
+repositories have mission statements  centered on broad science objectives to sup port a 
+defined set of science stakeholders  [around field campaigns, observation platforms and 
+missons] . The types of data ingested, archived, published , and distributed must adhere 
+to these guidelines. NASA’s Earth Science Data Active Archive Centers (DAACs) are a 
+good example of distributed science repositories  (Kobler and Berbert, 1991) ; with each 
+DAAC ’s data holdings focused  on specific  science themes. The data within each 
+repository is aggregated around science projects/missions, instruments or science 
+keywords, and is presented to the user community  using  this same organization al 
+structure .  
+ 
+ There are rapidly emerging causes  that drive t he need for a finer -grained curati on of data 
+and information within Earth science . First, there has been a rapid increase in the growth 
+of the number of Earth science datasets and publications. For example, there are over 
+14,600 Earth science related data collections (not individual files)  available in the 3 
+Data.gov catalog (Wright, 2014) from various U.S. federal agencies1. A recent search on 
+Elsevier’s journals related to Earth science produced a result of over 40,000 papers 
+published in 2014 alone.   Second, t he study of Earth as a system  has revealed that a 
+specialized focus on one facet of the system does not necessarily capture the dynamics 
+of an interdependent system.  Accordingly, research within Earth science has become 
+exceedingly interdisciplinary. This interdisciplinary nature of research requires discovery 
+of both data and information from distributed, multiple domain data and publication 
+repositories.   
+ 
+In this paper, we introduce the concept of geocuration  and present  the Climate Data 
+Initiative (CDI) project  (CDI, 2014)  as an exemplar example. The CDI project is  a 
+systematic effort to manually curate and share openly  available climate data from various  
+federal agencies. CDI is a broad multi -agency effort of the U.S. government  which  seeks 
+to leverage ‘extensive federal c limate -relevant data to stimulate innovation and private -
+sector entrepreneurship in support of national climate -change preparedness.’ (Climate 
+Action Plan). CDI utilizes Subject Matter Experts (SMEs) from different federal agencies 
+to manually curate data around key Climate resiliency themes.  CDI exemplifies the need 
+for geocuration given both the complexity of the topic and the types of relevant data 
+available from different federal agencies for climate change. The subsequent sections  
+describe  geocuration , the Climate Data Initiative project, the geocuration process used, 
+lessons learned, and suggestions to improve future geocuration efforts.  
+ 
+2.Geocuration  
+Geocuration is the act of searching, selecting, and synthesizing Earth science 
+data/metadata  and information from across disciplines and repositories  into a single, 
+cohesive , and useful  compendium . Geocuration is analogous to the concept of 
+verticalization in tool development , where verticalization refers to the customization of a 
+tool (Kohavi  et al. 2002)  based on a specific science use or domain application. 
+                                                 
+1 This number does not include other useful publicly available datasets distributed by research 
+laboratories, universities and other organizations.  4 
+Geocuration serves the same purpose by searching, selecting , and synthesizing data and 
+information based on specific science needs.  
+ 
+Geocuration requires following several systematic step s, each of which serves  a specific 
+purpose .  The Search  step is guided by the cumulative domain expertise of the curators . 
+The domain experts utilize the collective domain knowledge to identify all possible 
+relevant data and information resources.  Informa tion resource s could include citations 
+for relevant literature, specific workflows, tools, web sites, reports , and documents. The 
+Selection  step entails culling the search results based on some “fitness or relevancy” 
+criteria. The fitness criteria can range from simple spatial temporal bounds  and resolution , 
+a set of framing questions that define the contextual narrative around the curation e ffort 
+or fully described use cases . Performing a literature review and identifying relevant data 
+in published journal articles (Karasti et al.  2006 ) is another approach for selection. Finally, 
+targeting  the needs of  the intended consumers of the curated compendium  is another  
+effective way to filter identified information and to determine what needs to be provided 
+by the curation  (Goble et al.  2008 ).  
+ 
+Once  the selection  step is complete, the identified data and other information is 
+synthesized  into a cohe sive compendium . The goal of synthesis is to address a set of 
+questions. What has been gathered? A re all the data and information pieces easily 
+identifiable and their associations understandable? Why are these  data and information 
+pieces important to the t opic? The synthesis should provide  contextual framework for all 
+the gathered information objects. How can this  information unit  be used? The consumers 
+of the compendium should  be able to use the information  in his or hers  own research or 
+application s with minimal  effort.  
+The synthesized information can contain data virtually or locally with different level of 
+granularity.  Local d ata can be aggregated as data bundles containing individual data 
+granules or files. Data can also be aggregated as a single new product or a file containing 
+curated data parameters from different data sets.  Using metadata, one can create Virtual 
+Collections where the synthesized  compendium contain s only links to the data to its actual 
+data repository for access and use.  Virtual co llections can also have different levels of 5 
+granularity and can contain individual data files or specific data parameters.  The ability to 
+create virtual collections using the existing rich metadata catalogs in Earth science offers 
+a promising potential for  enhancing data access and use.  
+ 
+There are two approaches to geocuration: manual curation and automated curation. 
+Manual Curation requires Subject Matter Experts to serve as digital librarians, or 
+geocurators,  who discover and synthesize data and informat ion virtually. One of the main 
+advantages of manual curation is accuracy and trustworthiness  to address “suitability of 
+purpose” . This is a key requirement for downstream consumers of this curated 
+information, especially in Earth Science.  Peng et al., (2015) addresses this by asserting 
+that “...users are asking for data to be dependable in terms of quality and production 
+sustainability, to be from credible, secure, and authoritative sources, to be easily and 
+publicly accessible online.” Manual Curation , however , is labor intensive and  “a non -
+trivial undertaking that needs to balance content coverage against content quality” (Goble  
+et al. 2008) . Moreover, to be effective, curation needs to become  a community activity 
+promoting “collaboration where sheer scale of effort needed can deliver both breadth and 
+economies of scale not possible for each singular participant”  [Macdonald, 6]. 
+Community -driven curation can also provide the editorial oversight to minimize any biases 
+that may occur based on an individ ual curator’s preferences. One example of successful 
+manual curation is described by Howe and Yon (2008)  as “biocuration,” a topic within the 
+Biomedical field, focusing on the activity of organizing, representing and making biological 
+information accessibl e and usable for specific specialized sub -themes. Biocuration 
+facilitates community -based curation to address the existing gaps in knowledge, provides 
+researchers with a means to quickly find and use massive  amounts of complex data 
+quickly, offers insights  concerning  specific areas of interest , and makes it possible to 
+process  information faster as data and information is synthesized as part of curation. 
+Extracting, tagging with control vocabularies, and representing data from published 
+literature are the c ore tasks within biocuration.  
+ 
+Curation is still difficult to achieve in a fully automated manner. There are different 
+approaches and tools that support topic or theme -based searches using text mining or 6 
+ontological based algorithms (Shamsfard et al. 2006 ; Yue et al. 2009; Liu 2010) . These 
+approaches by themselves are not enough but can be used as tools to filter down 
+resources that are then manually re -ranked and synthesized  (Alex et al. 2008) . These 
+tools can support searches across domains and provide a utomated mediation between 
+different vocabularies used in different repositories to represent similar data  (Klien et al. 
+2001) . An example of an automated curation prototype is the “Data Albums” described in 
+Ramachandran et al (2014).  Data Albums are compiled virtual collections of information 
+related to a specific science topic or an event, containing links to relevant data files 
+(granules) from different instruments as well as tools and services for visualization and 
+analysis and inf ormation about the event contained in news reports, images, or videos to 
+supplement research analysis.  Curation is achieved via an ontology -based relevancy 
+ranking algorithm that filters out non -relevant information and data.  We envision in the  
+near future, specialized relevancy ranking algorithms will be able to generate virtual 
+collections for  defined curation tasks.  
+ 
+ 
+3.Climate Data Initiative  Project Overview  
+ 
+The President’s Climate Action Plan and the Executive Order 136532, Preparing the 
+United Sta tes for the Impacts of Climate Change, call for the Federal Government to 
+“…develop and provide authoritative, easily accessible, usable, and timely data, 
+information, and decision -support tools on climate preparedness and resilience” to 
+support federal, r egional, state, local, tribal, private -sector and nonprofit -sector efforts to 
+prepare for the impacts of climate change. In response to this call, NASA and NOAA were 
+asked to lead the Climate Data Initiative (CDI) and development of a Climate Resilience 
+Toolkit (CRT) , respectively .  
+The Climate Data Initiative (CDI) focuses on preparing  the United States for the impacts 
+of climate change by leveraging “extensive federal climate -relevant data to stimulate 
+                                                 
+2 http://www.gpo.gov/fdsys/pkg/FR -2013 -11-06/pdf/2013 -26785.pdf  7 
+innovation and private -sector entrepreneurship in sup port of national climate -change 
+preparedness .” (President’s Climate Plan, 16). It also supports the broader Open Data 
+Policy and integrates this effort with other Open Data Initiatives  by adding the new 
+Climate.Data.gov which includes  an online catalog of datasets and data products. The 
+Climate Data Initiative is a collaborative effort across federal agencies and scientific 
+disciplines that seeks to make federal climate data both usable and accessible for its 
+defined stakeholders.   So far, t he CDI and CRT include  seven themes, or topics, relevant 
+to climate change resiliency. These themes include Coastal Flooding, Food Resilience, 
+Water, Ecosystem Vulnerability, Human Health, Energy Infrastructure, and 
+Transportation. Each theme is a curated virtual data collection that is  relevant to 
+addressing the challenges of climate resiliency as it relates to a specific aspect of the 
+Earth system and the resulting societal impacts.   
+ 
+Since knowing for whom curation is intended can serve as guide for what curation to 
+provide (Goble et al.  2008 ), the Climate Data Initiative defined its stakeholders to include 
+decision makers and innovators. Decision makers are individuals responsible for shaping 
+policy, legislation, finances, social programs, funding , and disaster plannin g at the 
+national, state, and local levels. These decision makers include policy makers and 
+planners who need to analyze data related to activities that are essential to planning for 
+climate change resiliency. A key need  for decision makers such as GIS ana lysts, 
+emergency management responders, and natural resource managers is accessible, 
+ready to use data in  formats  or standard APIs  supported by  a decision support system. 
+Example formats range from KMLs  and ESRI’s shapefiles  to geoTIFFs which  can be 
+easily  used in  Geographic Information Systems .  
+The CDI is  focused on stimulating innovation , and entrepreneurship,  among data 
+innovators in the private sector and the general public who will use data to create and 
+build inform ation  and applications  for end use rs. Data i nnovators  are public and private 
+sector software developers that wish to develop new applications that leverage the federal 
+government’s openly available climate data. Recognizing that some of the best ideas for 8 
+government come from outside the g overnment, CDI targeted innovators to stimulate the 
+growth of innovative websites, innovat ive new apps, and other creative  tools around the 
+various climate resiliency themes.  
+ 
+ 
+4.CDI Curation Process  
+ 
+The three components of the CDI project are : the data system  infrastructure su pporting 
+the project, curation team consisting of Subject Matter Experts (SME) and informatics 
+experts, and the curation p rocess  itself. Fig 1 provides a bird 's-eye view of the CDI 
+curation  process and its components.  
+ 
+9 
+Figure 1: Ov erview of the CDI Curation process, participants based on roles and 
+infrastructure components used to publish the final results.  
+ 
+Curation  Infrastructure  
+To curate a  virtual  data collection that includes information about data from various 
+agencies across the Federal government, a  catalog is required to hold all the metadata 
+in a single repository or location. All federal agencies are mandated to publish metadata 
+for their da tasets in the Data.gov ( US EOP -OMB, 2009 ) catalog. Therefore, the Data.gov 
+catalog was the natural choice to serve as the core infrastructure component for the CDI  
+interagency curation effort.  
+ 
+The underlying Data.gov catalog [and its sister site, Geoplatf orm.gov,] use the 
+Comprehensive Knowledge Archive Network (CKAN) (Wainwright, 2012) data 
+management system  . CKAN  is a widely used data management system which  make s 
+data discoverable and accessible . It provides  tools to streamline  publishing , sharing,  
+finding, and using  data. Data publishers  use CKAN  to create a ca talog  that both describes 
+and makes the data discoverable.  Data.gov supports CKAN’s open source nature by 
+adding new functionality  and customizations as well as repairing CKAN -related bugs. 
+CKAN also provides a RESTful API to  programmatically  query its catalog, generate 
+statistics, and list datasets by theme.  
+ 
+There are two main types of metadata in Data.gov: geospatial and non -geospatial. All 
+non-geospatial metadata must comply with the Project O pen Data (POD) metadata 
+schema. The POD metadata schema is based on Data Catalog Vocabulary (DCAT) and  
+requires JavaScript Object Notation  (JSON ) format encoding for its records . All  agencies 
+provide metad ata in POD -compliant JSON files.  These metadata re cords are harvested  
+daily. Validation for schema conformance is performed  during the harvest process before 
+the metadata is  ingested and published in the data.gov catalog .  10 
+ 
+For describing geospatial  datasets , the Data.gov catalog  supports two types of geo spatial 
+metadata standards: ISO -19115:2003   and the Federal Geographic Data Committee’s 
+Content Standard for Digital Geospatial Metadata (FGDC CSDGM). Geospatial metadata 
+is typically provided in  a Catalog Service for the Web (CSW) endpoint. A mapping , 
+implemented by a crosswalk,  is required to  transform  geospatial metadata to the native 
+Data.gov Project Open Data schema. The crosswalk map s the ISO 19115:2003 metadata 
+into the POD schema. The CSDGM/FGDC metadata is first mapped into the ISO 
+19115:2003 schema  and then subsequently transformed into the POD schema  using this 
+same crosswalk . 
+ 
+Curation Team  
+For CDI, geocuration is a manual activity completed by two teams – the theme team and 
+the data coordination team . The t heme team  consists  of subject matt er experts from 
+multiple agencies. The theme team is  responsible for  recomm ending  sources of 
+authoritative data relevant for a particular climate resilience topic . Each theme team is 
+assigned a team lead and a Technical Point of Contact. The role of the Technical Point 
+of Contact is to liaison with and assist t he Data Coordination team in interacting with 
+different federal agencies in the course of adding  missing data to the Data.gov catalog or 
+correct ing any metadata issues identified. The Data Coordinat ion team consists of  Earth 
+Science informatics experts with the primary responsibility to check catalog metadata 
+quality , identify problem datasets , suggest ways to different agencies to  improve 
+metadata quality  and t rack metrics on data accessibility and  usability .  
+ 
+Curation  Process  
+ 
+Data must meet three criteria to be added  to a CDI Compendium  – in this case, a specific  
+climate resiliency  theme . First, a curated dataset should be scientifically relevant to the 
+given climate resiliency topic . The subject matter experts on the theme team ensure that 11 
+the selected datasets meet this scientific criterion. Second, the  curated dataset must be 
+from a reputable source , preferably from a federal agency  [ in this phase the focus is on 
+federal data reso urces or data produced under sponsorship of a federal agency] . Third, 
+a curated dataset must be accessible and usable. The data coordination team, with 
+assistance from the theme team and the original data providers , is primarily responsible 
+for ensuring that datasets meet these criteria . 
+ 
+The process begins with the  theme  team creating a series of framing questions to guide 
+the selection of datasets that are suitable and relevant to the climate resiliency  topic. The 
+theme team uses the Data.gov catalog as a  starting point for searching  the relevant data 
+for curation . The theme team identifies a ny missing data and notifies the agency 
+producing the data to publish the requisite metadata. The agency producing the  data is 
+responsible for providing the metadata t o publish and ma ke discoverable  in the Data.gov 
+catalog. After the completion of this curation phase , the theme team gives the data 
+coordination team  a list of data and other ancillary information upon which to perform 
+quality checks .  
+ 
+The data coordination team  perform s quality control checks on  the metadata to verify that 
+data is accessible and the associated metadata is robust enough to ensure  users can 
+utilize  these datasets in their applications . The CDI project defines accessible data   as 
+data that is  available in convenient and well-known  mechanisms  that can be easily  
+consumed  such as machine APIs  or downloadable files in standard formats . Accessible 
+data are sub-divided into data that are  directly usable by decision makers and those  more 
+suitable for input to tools and applications that an innovator might develop . Accessible 
+data usable by  decision makers include data formats that can be readily interoperable 
+with decision support systems such as Geographic Information Systems  including  ESRI’s 
+ArcGIS , and Google Earth.  Accessible data, usable by innovators include s common data 
+formats that are machine -readable. Machine -readable data are reasonably structured to 12 
+allow users to write code for automated processing. Machine -readab le data provide the 
+most value to innovators by allow ing them  to quickly reprocess the data or obtain  the data 
+automatically in order to populate applications. These types of data can also have 
+application programming interfaces, or APIs, to allow innovato rs to build new tools  using 
+these  datasets or to bring together information from various disparate sources.   
+ 
+The quality assessment for all of the metadata in a curated collection is compiled in a 
+document. Th is document provides feedback for each individ ual metadata record  and 
+includes  all identified  issues  along with  suggestions for improving the records. The 
+responsible data providers  within specific agencies  are given the feedback document. 
+These quality improvements are performed in an iterative manne r. If by chance  the 
+metadata corrections are not completed by an agency  at the time of the theme release, 
+those datasets  are not included in the published theme collection. Since the curation  for 
+each  theme  is an ongoing continuous process, improvements to the metadata records 
+are made after the theme release and new metadata records can be subsequently  added 
+to the collection.  
+ 
+5.Curation Results  
+ 
+Each theme  in CDI  is incrementally rolled out. The incremental release process for each 
+theme ensures that  they are  highlighted individually. Additionally, the incremental process 
+encourages users to return to the climate collection , thus creating  repeat users .  Once a 
+theme is made public, the theme teams are encouraged to continue to add additiona l 
+datasets to the collection. This ensures the climate themes remain fresh and relevant to 
+returning users.  
+The user accesses the collection through the main climate page on Data.gov at 
+Data.gov/climate (Figure 2). The pages can be sorted by theme  which  result s in the  data 
+collections also being listed by theme. The user can select the ‘data’ tab to obtain  the 13 
+relevant data catalog listing (Figure 2). The catalog listing is then displayed in the order 
+of the most recent views where ‘recent  views ’ quantifie s as the number of views within 
+the last two weeks. Once the user selects a record, information about the dataset is 
+displayed including the agency that provides the data, the spatial extent of the data (if 
+applicable), a short summary about the dataset, a nd links to access the data (Figure 2). 
+ 
+ 14 
+ 
+15 
+Figure 2: The steps to discover a specific curated data fo r a given theme are presented 
+in the three snapshots. The top image shows the CDI home page. Once a user selects 
+a theme and the data tab, the curated datasets are presented (middle image). The 
+lower image is an example of a specific data set landing page.  
+  
+To date, seven  themes have been released as a part of the Climate Data Initiative (Table 
+1).  These themes were curated by subject matter experts from several Federal agencies, 
+including NOAA, USDA, USGS, and HHS/CDC.  
+ 
+Theme  Date Released  Lead Agency  
+Coastal Flooding  March 2014  NOAA  
+Food Resilience  July 2014  USDA  
+Water  November 2014  USGS  
+Ecosystem Vulnerability  December 2014  USGS  
+Energy Infrastructure  June 2015  DOE  
+Transportation  June 2015  DOT  
+Human Health  April 2015  HHS/CDC  
+ 
+Table 1: Different c limate resilience themes released by CDI  
+ 
+The Climate Data Initiative collection currently consists of 560 unique datasets  (Figure 
+3). Due to some datasets being included in multiple themes, the number of datasets by 
+theme appears to be higher than the total collection.  
+  
+ 16 
+ 
+Figure 3: Number datasets curated under the CDI effort categorized by the different 
+climate resilience themes.  
+ 
+ 
+The CDI website was instrumented with Google Analytics on January, 2015 after four of 
+the themes had been released. The numbers from  January 2015 are significant. There 
+were around 47,000 unique page views  on the CDI site . About 2% of the  total visitors  
+browsed the curated data.  
+ 
+Over 700 datasets from pre -release theme team submissions were checked for quality 
+by the data coordination team. Of these, 543 were made available at the theme release, 
+118 are a part of themes that have not been released yet, and approximately 100 did no t 
+pass the metadata quality checks at the time of release.  
+ 
+ 
+ 
+6.Challenges  
+Some of the main challenges faced  during the  CDI curation process  are described here:  
+ 
+17 
+1. Need for Discoverable, Open , and Accessible Data  
+Federal agencies are mandated  to make th eir data accessible and publish metadata in  in 
+Data.gov . However, more often that not,  a desired data set by the SMEs on the theme 
+team  was not always readily available.  The theme teams encountered various challenges  
+when requesting the desired data be added to the Data.gov catalog. These challenges 
+included finding the original data producer , identifying an agency or organization’s 
+individual responsible for publishing the  metadata into Data.gov, or simply educating the 
+organization on the Data.gov metadata requirements. The theme teams were able to 
+overcome these challenges within their own organizations ; however , reaching across 
+agencies sometimes proved difficult .  
+ 
+2. Importance of Synthesis  
+The curated list  of data is unable to accurately capture the subject matter experts’ intent . 
+While having a curated collection of datasets approved by subject matter experts is 
+valuable, in the end the collection essentially becomes a long directory or  a list. 
+Establishing valuable  connections between datasets  and their intended use  is lost in a 
+list. Therefore, the user knows that the datasets in the list have been approved by the 
+subject matter experts but has less certainty when making connections between the 
+various datase ts and their possible applications .  
+ 
+3. Curation is a non -trivial p rocess  
+The process of data curation for CDI is complicated because of the involvement of many 
+people from multiple agencies using many different infrastructure components and  short 
+deadlines  for each theme release. Even though a systematic process   designed by the 
+CDI data coordination team was utilized, finding and fixing errors ranging from missing 
+data sets to broken URLs was an extremely labor intensive effort.  This was primarily  the 
+role of the data coordination team.  As the data coordination team’s work progressed , the 
+process of identification and resolution of metadata issues improved . This improvement 
+was due to a better understanding of the Data.gov catalog and their harves ting processes,  
+gained by collaborating with both the Data.gov team and metadata experts  from different 
+agencies . This more nuanced understanding of where issues were originating from 
+enabled the data coordination team to provide specific feedback to the t heme teams  and 
+agencies . Overall, these targeted diagnostics increased the likelihood of metadata  
+record s getting fixed  by the data producers  in time for the theme release.  18 
+ 
+4. Metadata standards help but there are always some issues  
+Data.gov uses  the POD  schema to define metadata elements to store in its catalog. 
+However, Data.gov holds metadata for both geospatial and non -geospatial data.  Mapping 
+geospatial metadata elements geospatial standards such as FGDC or ISO 19115  to the 
+POD  schema  can often be problematic . Two types of error typically cause the mapping 
+issues . First, if there are no obvious one -to-one semantic mappings  of certain elements 
+between the two schemas. Second , if there are problems  in the software code  itself 
+transformin g metadata records from one standard to the other.  
+ 
+5. Curation  cannot be a one-off activity  
+Curation cannot be a one -off activity especially for projects  like CDI with ambitious goal s 
+and large scope. The curation process is dynamic because  the curated list change s over 
+time and requires periodic monitoring. The search and selection process can drive these 
+changes , allowing  the curators to discover  new relevant data sets that are then added  to 
+the relevant theme or topic list . The changes can also be dri ven by other factors such as 
+data sets no longer being published by the data producer, changes in the infrastructure 
+causing metadata harvesting issues, metadata errors during updates ,  etc.  
+ 
+ 
+Figure 4: Plot tracking the number of datasets curated under the Water theme over time 
+showing the evolving nature of geocuration.  
+19 
+ 
+ 
+The Water  theme  report  figure (Figure 4) illustrates these arguments . The initial push of 
+curation by the theme team can be seen leading up to mid -October. During this period, 
+the data coordination team is also checking all submitted metadata records for 
+accessibility and usability.  The decline in the number of datasets a round the beginning 
+of November illustrates the process of removing all datasets that do not pass quality 
+checks in preparation for the theme release. Notice that the number of associated broken 
+links also decline around this time. Finally, the collection shows continued growth over 
+time as the theme team continues to add new relevant datasets to the collection.  
+ 
+7.Discussion  
+ 
+Using subject matter experts to curate  data for  the climate resiliency  themes for the 
+Climate Data Initiative was, overall, a successful endeavor . However, steps can be taken 
+to improve  the curation process and resolve some of the issues listed in the section  
+above . Some of the lessons learned  from this project  that can be a pplied to any similar 
+curation effort in the future are:  
+ 
+ Any successful data curation activity (both local and virtual) requires a large pool 
+of open and accessible datasets that are discoverable.  Also, metadata catalog(s) 
+play a critic al role in enabl ing successful data curation, especially if the curated 
+data collections are virtual.     
+ The r ole of synthesis in curation is often overlooked or glossed over ; however, this 
+synthesis often turns out to be an important element to determine the utility of the  
+curated  compendium . Selected data must be synthesized with the intent of 
+curation, captured in a formal structure or information model , and presented to 
+users in a meaningful manner instead of just being presented as a long list of data 
+sets per topic.  
+ The use of standards does not eliminate metadata issues , especially if 
+transformations are required between different standards.  20 
+ Curation should not be a one -off process. As long as the curated collection is 
+relevant, it requires periodic updates and monitor ing to maintain both its quality 
+and value to end users.  
+ The c uration process can be  streamlined to encourage continued participation. 
+Making the original curators  into moderators of the collection instead of just the 
+primary source of content would lighte n the burden of curation (Goble et al . 2008 ).  
+ There is a need to reward or incentivize the curation process. In order to encourage 
+participation, a streamlined citation method for curation efforts would ensure that 
+curators receive recognition for work done. Citation could also potentially 
+encourage th e continued use of the curated data which could potentially contribute 
+to a longer lifespan for the curated data.  
+ There is a need to capture usage metrics because assessing the impact made by 
+the curation effort (Howe et al.  2008 ) could persuade others of  the validity of the 
+process.  
+ 
+The methodology followed by the Climate Data Initiative of using both subject matter 
+experts and data experts to curate a collection of climate -related data from across the 
+federal government lends trustworthiness and reliab ility to the collection. This 
+trustworthiness is essential for decision makers and innovators who wish to plan for 
+climate change resiliency. Additionally, the collaborative nature of the Climate Data 
+Initiative model lays the foundation for future cross -discipline curation efforts in the Earth 
+sciences. The study of Earth as a system has revealed that a specialized focus on one 
+facet of the system does not necessarily capture the dynamics of an interdependent 
+system. The mechanisms of climate change and cl imate resiliency are similarly 
+interdependent. Better synthesis of the curated data to the capture of these 
+interdependent relationships is a logical step forward in the pursuit of data discoverability, 
+data accessibility, and ultimately, in the case of th e Climate Data Initiative, climate 
+resiliency.  
+ 
+8.References  21 
+ Alex, Beatrice, Claire Grover, Barry Haddow, Mijail Kabadjov, Ewan Klein, Michael 
+Matthews, Stuart Roebuck, Richard Tobin, and Xinglong Wang. 2008. “Assisted 
+Curation: Does Text Mining Really Help?” Pacific Symposium on Biocomputing. 
+Pacific Symposium on Biocomputing 567: 556 –567. 
+Burnett, Michael, Beth Weinstein, and Andrew Mitchell. 2007. “ECHO - Enabling 
+Interoperability with NASA Earth Science Data and Services.” In International 
+Geoscience and Remote Sensing Symposium (IGARSS), 4012 –4015. 
+doi:10.1109/ IGARSS.2007.4423729.  
+CDI. 2014. “Climate Data Initiative.” http://www.data.gov/climate/.  
+Goble, Carole, Robert Stevens, Duncan Hull, Katy Wolstencroft, and Rodrigo Lopez. 
+2008. “Data Curation + Process Curation = Data Integration + Science.” Briefings in 
+Bioinformatics 9 (6): 506 –517. doi:10.1093/bib/bbn034.  
+Howe, Doug, and Seung Yon. 2008. “The Future of Biocuration.” Nature 455 (7209): 
+47–50. doi:10.1038/455047a. http://dx.doi.org/10.1038/455047a.  
+Karasti, Helena, Karen S. Baker, and Eija Halkola. 2006. “ Enriching the Notion of Data 
+Curation in E -Science: Data Managing and Information Infrastructuring in the Long 
+Term Ecological Research (LTER) Network.” Computer Supported Cooperative 
+Work 15: 321 –358. doi:10.1007/s10606 -006-9023 -2. 
+Klien, Eva, Michael Lut z, and Werner Kuhn. 2001. “Ontology -Based Discovery of 
+Geographic Information Services – An Application in Disaster Management 
+Motivating Example : Discovering Services for Estimating Storm Damage in 
+Forests.” Computers, Environment and Urban Systems 30 (1 ): 102 –123. 
+Kobler, B., and J. Berbert. 1991. “NASA Earth Observing System Data Information 
+System (EOSDIS).” [1991] Digest of Papers Eleventh IEEE Symposium on Mass 
+Storage Systems. doi:10.1109/MASS.1991.160199.  
+Kohavi, Ron, Neal. J. Rothleder, and Evange los Simoudis. 2002. “Emerging Trends in 
+Business Analytics.” Commun. ACM 45 (8): 45 –48. 
+Liu, Wei. 2010. “Ontology -Based Retrieval of Geographic Information.” In 18th 
+International Conference on Geoinformatics, 1 –6. 
+doi:10.1109/GEOINFORMATICS.2010.5567612.  
+Peng, Ge, Jeffrey L Privette, Edward J Kearns, Nancy A Ritchey, and Steve Ansari. 
+2015. “A UNIFIED FRAMEWORK FOR MEASURING STEWARDSHIP 
+PRACTICES APPLIED TO DIGITAL ENVIRONMENTAL DATASETS.” Data 
+Science Journal 13 (February): 231 –253. 22 
+Philip Lord, Alison Ma cdonald, Liz Lyon, and David Giaretta. 2004. “From Data Deluge 
+to Data Curation.” Journal of Documentation 67 (2): 214 –237. doi:10.1.1.111.7425. 
+http://citeseerx.ist.psu.edu/viewdoc/summary?doi=?doi=10.1.1.111.7425.  
+Ramachandran, Rahul, Ajinkya Kulkarni, M anil Maskey, Rohan Bakare, Sabin Basyal, 
+and Xiang Li. 2014. “DATA ALBUMS : AN EVENT DRIVEN SEARCH , 
+AGGREGATION AND CURATION TOOL FOR EARTH SCIENCE.” In IEEE 
+Geoscience and Remote Sensing Society 2014. Quebec City, Canada.  
+Shamsfard, Mehrnoush, Azadeh Nem atzadeh, and Sarah Motiee. 2006. “ORank : An 
+Ontology Based System for Ranking Documents.” International Journal of 
+Computer Science 1 (3): 225 –231. 
+U.S. EOP -OMB. 2009. “M -10-06: Open Government Directive.” 
+http://www.whitehouse.gov/sites/default/files/omb /assets/memoranda_2010/m10 -
+06.pdf.  
+Wainwright, Mark. 2012. “Using CKAN : Storing Data for Re -Use.” In OR2012: Open 
+Repositories. http://ckan.org/files/2012/08/OKF -OR12 -poster.pdf.  
+Walters, Tyler. 2011. New Roles for New Times : Digital Curation for Preserv ation. 
+Humanities. Vol. 330. http://www.arl.org/bm~doc/nrnt_digital_curation17mar11.pdf.  
+Wright, Forrest. 2014. “Data.gov.” Journal of Business & Finance Librarianship 19 (1): 
+77–82. doi:10.1080/08963568.2014.855090. 
+http://www.tandfonline.com/doi/abs/10.1 080/08963568.2014.855090.  
+Yue, Peng, Jianya Gong, Liping Di, Lianlian He, and Yaxing Wei. 2009. Integrating 
+Semantic Web Technologies and Geospatial Catalog Services for Geospatial 
+Information Discovery and Processing in Cyberinfrastructure. GeoInformatica . Vol. 
+15. doi:10.1007/s10707 -009-0096 -1. http://link.springer.com/10.1007/s10707 -009-
+0096 -1. 
+ "

@@ -1,0 +1,702 @@
+,text
+0,"81CHAPTER 4
+Climate Informatics
+Claire Monteleoni, Gavin A. Schmidt, 
+Francis Alexander, Alexandru Niculescu- Mizil, 
+Karsten Steinhaeuser, Michael Tippett, Arindam Banerjee, M. Benno Blumenthal, Auroop R. Ganguly, Jason E. Smerdon, and Marco Tedesco
+CONTENTS
+4.1 Introduction 82
+4.2 Machine Learning 844.3 Understanding and Using Climate Data 84
+4.3.1 In- Situ  Observations 85
+4.3.2 Gridded/ Processed Observations 854.3.3 Satellite Retrievals 864.3.4 Paleoclimate Proxies 864.3.5 Reanalysis Products 874.3.6 Global Climate Model (GCM) Output 874.3.7 Regional Climate Model (RCM) Output 88
+4.4 Scientific Problems in Climate Informatics 88
+4.4.1 Parameterization Development 894.4.2 Using Multimodel Ensembles of Climate Projections 894.4.3 Paleoreconstructions 904.4.4 Data Assimilation and Initialized Decadal Predictions 904.4.5 Developing and Understanding Perturbed Physics 
+Ensembles (PPEs) 9082   ◾   Computational Intelligent Data Analysis for Sustainable Development
+4.1  INTRODUCTION
+The impacts of present and potential future climate change will be 
+one of the most important scientific and societal challenges in the 
+21st century. Given observed changes in temperature, sea ice, and sea level, improving our understanding of the climate system is an interna-tional priority. This system is characterized by complex phenomena that are imperfectly observed and even more imperfectly simulated. But with an ever- growing supply of climate data from satellites and environmental 4.5 Climate Data Analysis: Problems and Approaches 91
+4.5.1 Abrupt Changes 914.5.2 Climate Networks 944.5.3 Predictive Modeling: Mean Processes and Extremes 96
+4.6 Seasonal Climate Forecasting 97
+4.6.1 What Is the Basis for Seasonal Forecasting? 974.6.2 Data Challenges 994.6.3 Identifying Predictable Quantities 994.6.4 Making the Best Use of GCM Data 100
+4.7 Climate Extremes, Uncertainty, and Impacts 101
+4.7.1 The Climate Change Challenge 1014.7.2 The Science of Climate Extremes 1014.7.3 The Science of Climate Impacts 102
+4.8 Reconstructing Past Climate 103
+4.8.1 The Global Temperature Reconstruction Problem 1044.8.2 Pseudoproxy Experiments 1074.8.3 Climate Reconstructions and the Future 108
+4.9 Applications to Problems in Polar Regions 1104.10 Toward a Climate Informatics Toolbox 1124.11 Data Challenges and Opportunities in Climate Informatics 114
+4.11.1 Issues with Cross- Class Comparisons 1144.11.2 Climate System Complexity 1164.11.3 Challenge: Cloud- Computing- Based Reproducible 
+Climate Data Analysis 1164.11.3.1 Data Scale 1174.11.3.2 Reproducibility and Provenance Graphs 117
+4.12 Conclusion 118Acknowledgments 118References 119Climate Informatics    ◾   83  
+sensors, the magnitude of data and climate model output is beginning 
+to overwhelm the relatively simple tools currently used to analyze them. A computational approach will therefore be indispensable for these analysis challenges. This chapter introduces the fledgling research disci-pline climate informatics : collaborations between climate scientists and 
+machine learning researchers in order to bridge this gap between data and understanding. We hope that the study of climate informatics will acceler-ate discovery in answering pressing questions in climate science.
+Machine learning is an active research area at the interface of com-
+puter science and statistics, concerned with developing automated tech-niques, or algorithms, to detect patterns in data. Machine learning (and data mining) algorithms are critical to a range of technologies, including Web search, recommendation systems, personalized Internet advertis-ing, computer vision, and natural language processing. Machine learning has also made significant impacts on the natural sciences, for example, in biology; the interdisciplinary field of bioinformatics has facilitated many discoveries in genomics and proteomics. The impact of machine learning on climate science promises to be similarly profound.
+The goal of this chapter is to define climate informatics  and to propose 
+some grand challenges for this nascent field. Recent progress on climate informatics, by the authors as well as by other groups, reveals that col-laborations with climate scientists also open up interesting new problems for machine learning. There are a myriad of collaborations possible at the intersection of these two fields. This chapter uses both top- down and  bottom- up approaches to stimulate research progress on a range of prob-lems in climate informatics, some of which have yet to be proposed. For the former, we present challenge problems posed by climate scientists, and discussed with machine learning, data mining, and statistics researchers at Climate Informatics 2011 , the First International Workshop on Climate 
+Informatics , the inaugural event of a new annual workshop in which all 
+co-authors participated. To spur innovation from the bottom- up, we also describe and discuss some of the types of data available. In addition to summarizing some of the key challenges for climate informatics, this chapter also draws on some of the recent climate informatics research of the co- authors.
+The chapter is organized as follows. First, we discuss the types of cli-
+mate data available and outline some challenges for climate informatics, including problems in analyzing climate data. Then we go into further detail on several key climate informatics problems: seasonal climate 84   ◾   Computational Intelligent Data Analysis for Sustainable Development
+forecasting, predicting climate extremes, reconstructing past climate, and 
+some problems in polar regions. We then discuss some machine learning and statistical approaches that might prove promising (and that were not mentioned in previous sections). Finally, we discuss some challenges and opportunities for climate science data and data management. Due to the broad coverage of the chapter, related work discussions are interspersed throughout the sections.
+4.2  MACHINE LEARNING
+Over the past few decades, the field of machine learning has matured sig-
+nificantly, drawing on ideas from several disciplines, including optimiza-tion, statistics, and artificial intelligence [4, 34]. Application of machine learning has led to important advances in a wide variety of domains rang-ing from Internet applications to scientific problems. Machine learning methods have been developed for a wide variety of predictive modeling as well as exploratory data analysis problems. In the context of predictive modeling, important advances have been made in linear classification and regression, hierarchical linear models, nonlinear models based on kernels, as well as ensemble methods that combine outputs from different predic-tors. In the context of exploratory data analysis, advances have been made in clustering and dimensionality reduction, including nonlinear methods to detect low- dimensional manifold structures in the data. Some of the important themes driving research in modern machine learning are moti-vated by properties of modern datasets from scientific, societal, and com-mercial applications. In particular, the datasets are extremely large scale, running into millions or billions of data points; are high- dimensional, going up to tens of thousands or more dimensions; and have intricate statistical dependencies that violate the “independent and identically dis-tributed” assumption made in traditional approaches. Such properties are readily observed in climate datasets, including observations, reanaly-sis, as well as climate model outputs. These aspects have led to increased emphasis on scalable optimization methods [94], online learning methods [11], and graphical models [47], which can handle large- scale data in high dimensions with statistical dependencies.
+4.3  UNDERSTANDING AND USING CLIMATE DATA
+Profuse amounts of climate data of various types are available, providing 
+a rich and fertile playground for future data mining and machine learn-ing research. Here we discuss some of the varieties of data available, and Climate Informatics    ◾   85  
+provide some suggestions on how they can be used. The discussion opens 
+up some interesting problems. There are multiple sources of climate data, ranging from single- site observations scattered in an unstructured way across the globe to climate model output that is global and uniformly gridded. Each class of data has particular characteristics that should be appreciated before it can be successfully used or compared. We provide here a brief introduction to each, with a few examples and references for further information. Common issues that arise in cross- class syntheses are also addressed.
+4.3.1  In- Situ Observations
+In- situ  measurements refer to raw (or only minimally processed) measure-
+ments of diverse climate system properties that can include temperatures, rainfall, winds, column ozone, cloud cover, radiation, etc., taken from spe-cific locations. These locations are often at the surface (e.g., from weather stations), but can also include atmospheric measurements from radio-sonde balloons, sub surface ocean data from floats, data from ships, air-craft, and special intensive observing platforms.
+Much of this data is routinely collected and made available in col-
+lated form from National Weather Services or special projects such as AEROCOM (for aerosol data), International Comprehensive Ocean-Atmosphere Data Set (ICOADS) (ocean temperature and salinity from ships), Argo (ocean floats), etc. Multivariate data related to single experi-ments (e.g., the Atmospheric Radiation Measurement (ARM) program or the Surface Heat Budget of the Arctic (SHEBA)), are a little less well orga-nized, although usually available at specialized websites.
+This kin d o f da ta is useful f o r l oo king a t coh er en t m ul tivaria te co m -
+parisons, although usually on limited time and space domains, as input to weather model analyses or as the raw material for processed gridded data (see next subsection). The principal problem with this data is their sparse-ness spatially and, in time, inhomogeneities due to differing measurement practices or instruments and overall incompleteness (not all variables are measured at the same time or place) [45, 62].
+4.3.2  Gridded/ Processed Observations
+Given a network of raw in- situ  data, the next step is synthesizing those 
+networks into quality- controlled regularly gridded datasets. These have a number of advantages over the raw data in that they are easier to work with, are more comparable to model output (discussed below), and have 86   ◾   Computational Intelligent Data Analysis for Sustainable Development
+fewer nonclimatic artifacts. Gridded products are usually available on 
+5° latitude by 5° longitude grids or even higher resolution. However, these products use interpolation, gap- filling in space and time, and correc-tions for known biases, all of which affect the structural uncertainty in the product. The resulting error estimates are often dependent upon space and time. Different products targeting the same basic quantity can give some idea of the structural uncertainty in these products, and we strongly recommend using multiple versions. For example, for different estimates of the global mean surface temperature, anomalies can be found from the National Climatic Data Center (NCDC), the Hadley Centre, and NASA [6, 33, 90] that differ in processing and details but show a large amount of agreement at the large scale.
+4.3.3  Satellite Retrievals
+Since 1979, global and near- global observations of the Earth’s climate have 
+been made from low- earth orbit and geostationary satellites. These obser-vations are based either on passive radiances (either emitted directly from the Earth, or via reflected solar radiation) or by active scanning via lasers or radars. These satellites, mainly operated by U.S. agencies (NOAA, NASA), the European Space Agency, and the Japanese program (JAXA), and data are generally available in near- real- time. There are a number of levels of data, ranging from raw radiances (Level 1), processed data as a function of time (Level 2), and gridded averaged data at the global scale (Level 3).
+Satellite products do have specific and particular views of the climate 
+system, which requires that knowledge of the “satellite- eye” view be incor-porated into any comparison of satellite data with other products. Many satellite products are available for specific instruments on specific plat-forms; synthesis products across multiple instruments and multiple  platforms are possible, but remain rare.
+4.3.4  Paleoclimate Proxies
+In- situ instrumental data only extends on a global basis to the mid- 19th 
+century, although individual records can extend to the 17th or 18th century. For a longer term perspective, climate information must be extracted from so- called “proxy” archives, such as ice cores, ocean mud, lake sediments, tree rings, pollen records, caves, or corals, which retain information that is sometimes highly correlated to specific climate variables or events [41].
+As with satellite data, appropriate comparisons often require a for-
+ward model of the process by which climate information is stored and that Climate Informatics    ◾   87  
+incorporates the multiple variables that influence any particular proxy [75]. 
+However, the often dramatically larger signals that can be found in past cli-mates can overcome the increase in uncertainty due to spatial sparseness and nonclimatic noise, especially when combined in a multi- proxy approach [58]. Problems in paleoclimate are discussed in further detail in Section 4.8.
+4.3.5  Reanalysis Products
+Weather forecast models use as much observational data ( in- situ , remote 
+sensing, etc.) as can be assimilated in producing 6-hour forecasts (the “analyses”), which are excellent estimates of the state of the climate at any one time. However, as models have improved over time, the time series of weather forecasts can contain trends related only to the change in model rather than changes in the real world. Thus, many of the weather forecast-ing groups have undertaken “re analyses” that use a fixed model to re process d a t a  f r o m  t h e  p a s t  i n  o r d e r  t o  h a v e  a  c o n s i s t e n t  v i e w  o f  t h e  r e a l  w o r l d  (see reanalyses.org for more details). This is somewhat equivalent to a physics- based interpolation of existing datasets and often provides the best estimate of the climate state over the instrumental period (e.g., ERA-Interim [16]).
+However, not all variables in the re analyses are equally constrained 
+by observational data. Thus, sea- level pressure and winds are well char-acterized, but precipitation, cloud fields, and surface fluxes are far more model dependent and thus are not as reliable. Additionally, there remain unphysical trends in the output as a function of changes in the observing network over time. In particular, the onset of large- scale remote sensing in 1979 imparts jumps in many fields that can be confused with real climate trends [105].
+4.3.6  Global Climate Model (GCM) Output
+Global climate models are physics- based simulations of the climate sys-
+tem, incorporating (optionally) components for the atmosphere, ocean, sea ice, land surface, vegetation, ice sheets, atmospheric aerosols and chem-istry, and carbon cycles. Simulations can either be transient in response to changing boundary conditions (such as hindcasts of the 20th century), or time  slices for periods thought to be relatively stable (such as the mid- Holocene 6,000 years ago). Variations in output can depend on initial con-ditions (because of the chaotic nature of the weather), the model used, or variations in the forcing fields (due to uncertainties in the time his-tory, say, of aerosol emissions). A number of coordinated programs, nota-bly the Coupled Model Intercomparison Project (CMIP), have organized 88   ◾   Computational Intelligent Data Analysis for Sustainable Development
+coherent model experiments that have been followed by multiple climate 
+modeling groups around the world and which are the dominant source for 
+model output [96].
+These models are used to define fingerprints of forced climate change 
+that can be used in the detection and attribution of climate change [39], for hypothesis generation about linkages in the climate system, as test-beds for evaluating proposed real- world analyses [24], and, of course, future predictions [61]. Quantifying the structural uncertainty in model parameterizations or the model framework, the impact of known imper-fections in the realizations of key processes, and the necessity of compro-mises at small spatial or temporal scales are all important challenges.
+4.3.7  Regional Climate Model (RCM) Output
+Global models necessarily need to compromise on horizontal resolution. 
+In order to incorporate more details at the local level (particularly regional topography), output from the global models or the global re analyses can be used to drive a higher- resolution, regional climate model. The large- scale fields can then be transformed to higher resolution using physical principles embedded in the RCM code. In particular, rainfall patterns that are very sensitive to the detailed topography are often far better modeled within the RCM than in the global- scale driving model. However, there are many variables to consider in RCMs—from variations in how the boundary field forcing is implemented and in the physics packages—and the utility of using RCMs to improve predictions of change is not yet clear. A coordinated experiment to test these issues is the North American Regional Climate Change Assessment Program (NARCCAP) [60].
+4.4  SCIENTIFIC PROBLEMS IN CLIMATE INFORMATICS
+There are a number of different kinds of problems that climate scientists 
+are working on where machine learning and computer science techniques may make a big impact. This is a brief description of a few examples (with discussion of related work in the literature) that typify these ideas, although any specific implementation mentioned should not be consid-ered the last word. This section provides short descriptions of several chal-lenging problems in climate informatics broadly defined. In Section 4.5 we present problems in climate data analysis. In subsequent sections we delve into more detail on some specific problems in climate informatics.Climate Informatics    ◾   89  
+4.4.1  Parameterization Development
+Climate models need to deal with the physics that occurs at scales smaller 
+than any finite model can resolve. This can involve cloud formation, tur-bulence in the ocean, land surface heterogeneity, ice floe interactions, chemistry on dust particle surfaces, etc. This is dealt with by using parameterizations that attempt to capture the phenomenology of a spe-cific process and its sensitivity in terms of the (resolved) large scales. This is an ongoing task, and is currently driven mainly by scientists’ physical intuition and relatively limited calibration data. As observational data become more available, and direct numerical simulation of key pro-cesses becomes more tractable, there is an increase in the potential for machine learning and data mining techniques to help define new param-eterizations and frameworks. For example, neural network frameworks have been used to develop radiation models [50].
+4.4.2  Using Multimodel Ensembles of Climate Projections
+There are multiple climate models that have been developed and are 
+actively being improved at approximately 25 centers across the globe. Each model shares some basic features with at least some other models, but each has generally been designed and implemented independently and has many unique aspects. In coordinated Model Intercomparison Projects (MIPs) (most usefully, the Coupled MIP (CMIP3, CMIP5), the Atmospheric Chemistry and Climate MIP (ACCMIP), the PaleoClimate MIP (PMIP3), etc.), modeling groups have attempted to perform analogous simulations with similar boundary conditions but with multiple models. These “ensembles” offer the possibility of assessing what is robust across models, what are the roles of internal variability, structural uncertainty, and scenario uncertainty in assessing the different projections at different time and space scales, and multiple opportunities for model- observation comparisons. Do there exist skill metrics for model simulations of the present and past that are informative for future projections? Are there weighting strategies that maximize predictive skill? How would one explore this? These are questions that also come up in weather forecasts, or seasonal forecasts, but are made more difficult for the climate problem b e ca us e  o f  th e  l o n g  tim e s cal e s  in v o l v e d  [ 40 ,  9 7 ] .  S o m e  r e c e n t  w o r k  h as  applied machine learning to this problem with encouraging results [63].90   ◾   Computational Intelligent Data Analysis for Sustainable Development
+4.4.3  Paleoreconstructions
+Understanding how climate varied in the past before the onset of wide-
+spread instrumentation is of great interest—not least because the climate changes seen in the paleo- record dwarf those seen in the 20th century and hence may provide much insight into the significant changes expected this century. Paleo- data is, however, even sparser than instrumental data and, moreover, is not usually directly commensurate with the instrumental record. As mentioned in Section 4.3, paleo- proxies (such as water isotopes, tree rings, pollen counts, etc.) are indicators of climate change but often have nonclimatic influences on their behavior, or whose relation to what would be considered more standard variables (such as temperature or pre-cipitation) is perhaps nonstationary or convolved. There is an enormous challenge in bringing together disparate, multi- proxy evidence to produce large- scale patterns of climate change [59], or from the other direction build enough “forward modeling” capability into the models to use the proxies directly as modeling targets [76]. This topic is discussed in further detail in Section 4.8.
+4.4.4  Data Assimilation and Initialized Decadal Predictions
+The primary way in which sparse observational data are used to construct 
+complete fields is through data assimilation. This is a staple of weather fore-casts and various re analyses in the atmosphere and ocean. In many ways, this is the most sophisticated use of the combination of models and obser-vations, but its use in improving climate  predictions is still in its infancy. 
+For weather timescales, this works well; but for longer term forecasts (seasons to decades), the key variables are in the ocean, not the atmosphere, and initializing a climate model so that the evolution of ocean variability models the real world in useful ways is very much a work in progress [44, 90]. First results have been intriguing, if not convincing, and many more examples are slated to come online in the new CMIP5 archive [61].
+4.4.5  Developing and Understanding Perturbed 
+Physics Ensembles (PPEs)
+One measure of structural uncertainty in models is the spread among the 
+different models from different modeling groups. But these models can-not be considered a random sample from the space of all possible models. Another approach is to take a single model and, within the code, vary mul-tiple (uncertain) parameters in order to generate a family of similar models Climate Informatics    ◾   91  
+that nonetheless sample a good deal of the intrinsic uncertainty that arises 
+in choosing any specific set of parameter values. These ”Perturbed Physics Ensembles” (PPEs) have been used successfully in the climateprediction.net and Quantifying Uncertainty in Model Predictions (QUMP) projects to generate controlled model ensembles that can be compared systemati-cally to observed data and make inferences [46, 64]. However, designing such experiments and efficiently analyzing sometimes thousands of simu-lations is a challenge, but one that will increasingly be attempted.
+4.5  CLIMATE DATA ANALYSIS: PROBLEMS AND APPROACHES
+Here we discuss some additional challenge problems in analyzing climate 
+data. The rate of data acquisition via satellite network and re analyses proj-ects is very rap id. Similarly , the amoun t of model output is equally fast growing. Model- observation comparisons based on processes (i.e., the multivariate changes that occur in a single event [or collection of events], such as a North Atlantic storm, an ocean eddy, an ice floe melting event, a hurricane, a jet stream excursion, a stratospheric sudden warming, etc.) have the potential to provide very useful information on model credibility, physics, and new directions for parameterization improvements. However, data services usually deliver data in single- variable, spatially fixed, time- varying formats that make it very onerous to apply space and time filters to the collection of data to extract generic instances of the process in ques-tion. As a first step, algorithms for clustering data streams will be critical for clustering and detecting the patterns listed. There will also be the need to collaborate with systems and database researchers on the data chal-lenges mentioned here and in Section 4.11. Here we present several other problems to which cutting- edge data analysis and machine learning tech-niques are poised to contribute.
+4.5.1  Abrupt Changes
+Earth system processes form a nonlinear dynamical system and, as a result, 
+changes in climate patterns can be abrupt at times [74]. Moreover, there is some evidence, particularly in glacial conditions, that climate tends to remain in relatively stable states for some period of time, interrupted by sporadic transitions (perhaps associated with so- called tipping points ) that 
+delineate different climate regimes. Understanding the causes behind sig-nificant abrupt changes in climate patterns can provide a deeper under-standing of the complex interactions between Earth system processes. The 92   ◾   Computational Intelligent Data Analysis for Sustainable Development
+first step toward realizing this goal is to have the ability to detect and iden-
+tify abrupt changes from climate data.
+Machine learning methods for detecting abrupt changes, such as 
+extensive droughts that last for multiple years over a large region, should have the ability to detect changes with spatial and temporal persistence, and should be scalable to large datasets. Such methods should be able to detect well- known droughts such as the Sahel drought in Africa, the 1930s Dust Bowl in the United States, and droughts with similar characteristics where the climatic conditions were radically changed for a period of time over an extended region [23, 37, 78, 113]. A simple approach for detecting droughts is to apply a suitable threshold to a pertinent climate variable, such as precipitation or soil moisture content, and label low- precipitation regions as droughts. While such an approach will detect major events like the Sahel drought and dust bowls, it will also detect isolated events, such as low precipitation in one month for a single location that is clearly not an ab rupt change even t. Th us, the n umber of “false positives” from such a simple approach would be high, making subsequent study of each detected event difficult.
+To identify drought regions that are spatially and temporally persistent, 
+one can consider a discrete graphical model that ensures spatio temporal smoothness of identified regions. Consider a discrete Markov Random Field (MRF) with a node corresponding to each location at each time step and a meaningful neighborhood structure that determines the edges in the underlying graph G = (V,E)  [ 111 ]. Each node can be in one of two 
+states: “normal” or “drought.” The maximum a posteriori (MAP) infer-ence problem in the MRF can be posed as
+ 
+xx x x
+xuu
+xVuv uv
+uvN*a r g m a x () (, )
+{, }(,)=+
+∈∈∑
+01θθ
+∈∈∑⎧
+⎨⎪
+⎩⎪⎫
+⎬⎪
+⎭⎪ E
+where θu,θuv are node- wise and edge- wise potential functions that, respec-
+tively, encourage agreement with actual observations and agreement among neighbors; and is the state (i.e., “normal” or “drought”) at node u ∈ V. The MAP inference problem is an integer programming problem 
+often solved using a suitable linear programming (LP) relaxation [70, 111].
+Figure  4.1  shows results on drought detection over the past century 
+based on the MAP inference method. For the analysis, the Climatic Research Climate Informatics    ◾   93  
+Unit (CRU) precipitation dataset was used at 0.5° × 0.5° latitude- longitude 
+spatial resolution from 1901 to 2006. The LP involved approximately 7 million variables and was solved using efficient optimization techniques. The method detected almost all well- known droughts over the past cen-tury. More generally, such a method can be used to detect and study abrupt changes for a variety of settings, including heat waves, droughts, 
+90°N180°W 150°W 120°W 90°W 60°W 30°W 0° 30°E 60°E 90°E 120°E 150°E 180°E
+75°N
+60°N45°N30°N15°N
+15°S
+30°S45°S60°S75°S
+90°S0°
+90°N180°W 150°W 120°W 90°W 60°W 30°W 0° 30°E 60°E 90°E 120°E 150°E 180°E
+75°N
+60°N45°N30°N15°N
+15°S
+30°S45°S60°S75°S
+90°S0°
+FIGURE 4.1 (See color insert .) The drought regions detected by our algorithm. 
+Each panel shows the drought starting from a particular decade: 1905–1920 (top left), 1921–1930 (top right), 1941–1950 (bottom left), and 1961–1970 (bottom right). The regions in black rectangles indicate the common droughts found by [63].94   ◾   Computational Intelligent Data Analysis for Sustainable Development
+precipitation, and vegetation. The analysis can be performed on observed 
+data, re analysis data, as well as model outputs as appropriate.
+4.5.2  Climate Networks
+Identifying dependencies between various climate variables and climate 
+processes form a key part of understanding the global climate system. Such 
+90°N180°W 150°W 120°W 90°W 60°W 30°W 0° 30°E 60°E 90°E 120°E 150°E 180°E
+75°N
+60°N45°N30°N15°N
+15°S
+30°S45°S60°S
+75°S
+90°S0°
+90°N180°W 150°W 120°W 90°W 60°W 30°W 0° 30°E 60°E 90°E 120°E 150°E 180°E
+75°N
+60°N45°N30°N15°N
+15°S
+30°S45°S60°S75°S
+90°S0°
+FIGURE 4.1 (See color insert .) (continued) The drought regions detected by our 
+algorithm. Each panel shows the drought starting from a particular decade: 1905–1920 (top left), 1921–1930 (top right), 1941–1950 (bottom left), and 1961–1970 (bottom right). The regions in black rectangles indicate the common droughts found by [63].Climate Informatics    ◾   95  
+dependencies can be represented as climate networks [19, 20, 106, 107], where 
+relevant variables or processes are represented as nodes and dependencies are captured as edges between them. Climate networks are a rich represen-tation for the complex processes underlying the global climate system, and can be used to understand and explain observed phenomena [95, 108].
+A key challenge in the context of climate networks is to construct such 
+networks from observed climate variables. From a statistical machine learning perspective, the climate network should reflect suitable dependen-cies captured by the joint distribution of the variables involved. Existing methods usually focus on a suitable measure derived from the joint distri-bution, such as the covariance or the mutual information. From a sample- based estimate of the pairwise covariance or mutual information matrix, one obtains the climate network by suitably thresholding the estimated matrix. Such approaches have already shown great promise, often identify-ing some key dependencies in the global climate system [43] (Figure 4.2).
+Going forward, there are a number of other computational and algorith-
+mic challenges that must be addressed to achieve more accurate representa-tions of the global climate system. For instance, current network construction methods do not account for the possibility of time- lagged correlations, yet we know that such relationships exist. Similarly, temporal autocorrelations and signals with varying amplitudes and phases are not explicitly handled. There is also a need for better balancing of the dominating signal of spatial autocorrelation with that of possible teleconnections (long- range dependen-cies across regions), which are often of high interest. In addition, there are many other processes that are well known and documented in the climate 
+ACCSOIAONCEP
+PNA
+AAONAO
+FIGURE  4.2 (See color insert .) Climate dipoles discovered from sea- level pres-
+sure (reanalysis) data using graph- based analysis methods (see [42] for details).96   ◾   Computational Intelligent Data Analysis for Sustainable Development
+science literature, and network representations should be able to incor-
+porate this a priori  knowledge in a systematic manner. One of the initial 
+motivations and advantages of these network- based approaches is their interpretability, and it will be critical that this property be retained as these various aspects are integrated into increasingly complex models and analysis methods.
+4.5.3  Predictive Modeling: Mean Processes and Extremes
+Predictive modeling of observed climatic phenomena can help in under-
+standing key factors affecting a certain observed behavior. While the usual goal of predictive modeling is to achieve high accuracy for the response variable, for example, the temperature or precipitation at a given location, in the context of climate data analysis, identifying the covariates having the most significan t influence on the response is often more importan t. Thus, in addition to getting high predictive accuracy, feature selection will be a key focus of predictive modeling. Further, one needs to differentiate between mean processes and extremes, which are rather different regimes for the response variable. In practice, different covariates may be influenc-ing the response variable under different regimes and timescales.
+In recent literature, important advances have been made in doing fea-
+ture selection in the context of high- dimensional regression [66, 101]. For concreteness, consider the problem of predicting the mean temperature in Brazil based on multiple ocean variables over all ocean locations. While the number of covariates p runs into tens of thousands, the number of 
+samples n based on monthly means over a few decades are a few hun-
+dred to a few thousand. Standard regression theory does not extend to this n ≪ p scenario. Because the ocean variables at a particular location are 
+naturally grouped, only a few such locations are relevant for the predic-tion, and only a few variables in each such location are relevant, one can pose the regression problem as a sparse group lasso problem [24, 25]:
+ 
+min
+θθλ λ
+∈
+=−+ + ∑/RbbNmyX g
+gN
+2
+1122
+1θθ
+where N is the number of ocean locations, m is the number of ocean vari-
+ables in each location so that p = Nm , θ is the weight vector over all covari-
+ates to be estimated, θg is the set of weights over variables at location g, 
+and λ1, λ2 are nonnegative constants. The sparse group lasso regularizer Climate Informatics    ◾   97  
+ensures that only few locations get non- zero weights, and even among 
+these locations, only a few variables are selected. Figure  4.3 shows the locations and features that were consistently selected for the task of tem-perature prediction in Brazil.
+4.6  SEASONAL CLIMATE FORECASTING
+Seasonal climate forecasts are those beyond the time frame of standard 
+weather forecasts (e.g., 2 weeks) out to a season or two ahead (up to 6 months). Fundamental questions concern what is (and is not) predictable and exactly how predictable it is. Addressing these questions also often gives a good indication of how to make a prediction in practice. These are difficult questions because much in the climate system is unpredict-able and the observational record is short. Methods from data mining and machine learning applied to observations and data from numerical cli-mate prediction models provide promising approaches. Key issues include finding components of the climate state- space that are predictable, and constructing useful associations between observations and corresponding predictions from numerical models.
+4.6.1  What Is the Basis for Seasonal Forecasting?
+The chaotic nature of the atmosphere and the associated sensitivity of 
+numerical weather forecasts to their initial conditions is described by the well- known “butterfly effect”—that the flap of a butterfly’s wings in Brazil could set off a tornado in Texas. Small errors in the initial state 
+t = Air Temperature
+p = Precipitation
+r = Rel. Humidity
+h = Hor. Wind Speedv = Vert. Wind Speed
+s = Sea Level Press.
+TEMP
+FIGURE  4.3 Temperature prediction in Brazil: Variables chosen through 
+cross- validation.98   ◾   Computational Intelligent Data Analysis for Sustainable Development
+of a numerical weather forecast quickly amplify until the forecast has no 
+value. This sensitive dependence on initial conditions provides an expla-nation for the limited time horizon (a few days to a week) for which use-ful weather forecasts can be issued, and the belief until the early 1980s that seasonal forecasting was impossible [81]. This also explains why effort is needed to “ find the needle of predictability in the haystack of chaos. ” Given the limited predictability of weather, how is it that quantities such as precipitation and near- surface temperature are skillfully forecast sea-sons (3 to 6 months) in advance?
+First, it should be noted that the format of climate predictions is differ-
+ent from that of weather forecasts. Weather forecasts target the meteor-ological conditions of a particular day or hour. Climate predictions are made in terms of weather statistics over some time range. For instance, the most common quantities in current climate forecasts are 3-month (seasonal) averages of precipitation and near- surface temperature. Two fundamental facts about the Earth system make climate forecasts pos-sible. First, the oceans evolve on timescales that are generally slower than those of the atmosphere, and some ocean structures are predictable sev-eral months in advance. The outstanding predictable ocean structure is associated with the El Niño–Southern Oscillation (ENSO) and is manifest in the form of widespread, persistent departures (anomalies) of equatorial Pacific sea surface temperature (SST) from its seasonally adjusted long- term value. The first ENSO forecasts were made in the late 1980s [10]. The second fact is that some components of the atmosphere respond to per-sistent SST anomalies. The atmospheric response to SST on any given day tends to be small relative to the usual weather variability. However, because the SST forcing and the associated atmospheric response may persist for months or seasons, the response of a seasonal average to SST forcing may be significant [82]. For instance, ENSO has impacts on temperature, pre-cipitation, tropical cyclones, human health, and perhaps even conflict [31, 38, 49, 72]. Early seasonal forecasts constructed using canonical cor-relation analysis (CCA) between antecedent SST and climate responses [3] took advantage of this persistence of SST. Such statistical (or empirical, in the sense of not including explicit fundamental physical laws) forecasts remain attractive because of their generally low dimensional and cost rela-tive to physical process- based models (typically general circulation mod-els; GCMs) with many millions of degrees of freedom.Climate Informatics    ◾   99  
+4.6.2  Data Challenges
+Here we introduce some challenges posed by the available data. Data chal-
+lenges are further discussed in Section 4.11. Serious constraints come from the dimensions of the available data. Reliable climate observations often do not extend more than 40 or 50 years into the past. This means that, for example, there may be only 40 or 50 available observations of January–March average precipitation. Moreover, the quality and completeness of that data may vary in time and space. Climate forecasts from GCMs often do not even cover this limited period. Many seasonal climate forecast systems started hindcasts in the early 1980s when satellite observations, particularly of SST , became available. In contrast to the sample size, the dimension of the GCM state- space may be of the order 10
+6, depending 
+on spatial grid resolution. Dimension reduction (principal component analysis [PCA] is commonly used) is necessary before applying classical methods like canonical correlation analysis to find associated features in predictions and observations [5]. There has been some use of more sophis-ticated dimensionality reduction methods in seasonal climate prediction problems [53]. Methods that can handle large state- spaces and small sam-ple size are needed. An intriguing recent approach that avoids the problem of small sample size is to estimate statistical models using long climate simulations unconstrained by observations and test the resulting model on observations [18, 115]. This approach has the challenge of selecting GCMs whose climate variability is “realistic,” which is a remarkably dif-ficult problem given the observational record.
+4.6.3  Identifying Predictable Quantities
+The initial success of climate forecasting has been in the prediction of sea-
+sonal averages of quantities such as precipitation and near- surface tem-perature. In this case, time averaging serves as a filter with which to find predictable signals. A spatial average of SST in a region of the equatorial Pacific is used to define the NINO3.4 index, which is used in ENSO fore-casts and observational analysis. This spatial average serves to enhance the large- scale predictable ENSO signal by reducing noise. The Madden- Julian Oscillation (MJO) is a sub- seasonal component of climate variabil-ity that is detected using time and space filtering. There has been some work on constructing spatial filters that were designed to optimize mea-sures of predictability [17] and there are opportunities for new methods 100   ◾   Computational Intelligent Data Analysis for Sustainable Development
+that incorporate optimal time and space filtering and that optimize more 
+general measures of predictability.
+While predicting the weather of an individual day is not possible in a 
+seasonal forecast, it may be possible to forecast statistics of weather such as the frequency of dry days or the frequency of consecutive dry days. These quantities are often more important to agriculture than seasonal totals. Drought has a complex time- space structure that depends on multiple meteorological variables. Data mining and machine learning (DM/ ML) methods can be applied to observations and forecasts to identify drought, as discussed in Section 4.5.
+Identification of previously unknown predictable climate features may 
+b e n e fi t  f r o m  t h e  u s e  o f  D M /  M L  m e t h o d s .  C l u s t e r  a n a l y s i s  o f  t r o p i c a l  cyclone tracks has been used to identify features that are associated with ENSO and MJO variability [9]. Graphical models, the nonhomogeneous Hidden Markov Model in particular, have been used to obtain stochastic daily sequences of rainfall conditioned on GCM seasonal forecasts [32].
+The time and space resolution of GCM forecasts limits the physi-
+cal phenomena they can resolve. However, they may be able to predict proxies or large- scale antecedents of relevant phenomena. For instance, GCMs that do not resolve tropical cyclones (TCs) completely do form TC- like structures that can be used to make TC seaso nal f o recasts [ 8, 1 1 0 ] . Identifying and associating GCMs “proxies” with observed phenomena is also a DM/ ML problem.
+Regression methods are used to connect climate quantities to associ-
+a t e d  v ar i a b l e s  th a t  ar e  e i th e r  u n r e s o l v e d  b y  G C M s  o r  n o t  e v e n  c l i m a t e  variables. For instance, Poisson regression is used to relate large- scale cli-m a t e  q u an ti ti e s  wi th  h ur r i c an e s  [ 1 0 4 ] ,  an d  g e n e r al i z e d  a d di ti v e  m o d e l s  are used to relate heat waves with increased mortality [68]. Again, the length of the observational record makes this challenging.
+4.6.4  Making the Best Use of GCM Data
+Data from multiple GCM climate forecasts are routinely available. 
+However, converting that data into a useful forecast product is a nontrivial task. GCMs have systematic errors that can be identified (and potentially corrected) through regression- like procedures with observations. Robust estimates of uncertainty are needed to construct probabilistic forecasts. Because forecasts are available from multiple GCMs, another question is how best to combine information from multiple sources, given the rela-tively short observation records with which to estimate model performance.Climate Informatics    ◾   101  
+4.7  CLIMATE EXTREMES, UNCERTAINTY, AND IMPACTS
+4.7 .1  The Climate Change Challenge
+Th e  F o u r t h  A s s e s s m e n t  R e p o r t  o f  t h e  I n t e r g o v e r n m e n t a l  P a n e l  o n  
+Climate Change (IPCC, AR4) has resulted in wider acceptance of global climate change caused by anthropogenic drivers of emission scenarios. However, earth system modelers struggle to develop precise predictions of extreme events (e.g., heat waves, cold spells, extreme rainfall events, droughts, hurricanes, and tropical storms) or extreme stresses (e.g., tropi-cal climate in temperate regions or shifting rainfall patterns) at regional and decadal scales. In addition, the most significant knowledge gap rel-evant for policy makers and stakeholders remains the inability to produce credible estimates of local- to- regional scale climate extremes and change impacts. Uncertainties in process studies, climate models, and associated spatiotemporal downscaling strategies may be assessed and reduced by statistical evaluations. But a similar treatment for extreme hydrological and meteorological events may require novel statistical approaches and improved downscaling. Scenario uncertainty for climate change impacts is fundamentally intractable, but other sources of uncertainty may be amenable to reduction. Regional impacts need to account for additional uncertainties in the estimates of anticipatory risks and damages, whether on the environment, infrastructures, economy, or society. The cascading un c e rt ain ti e s  fr o m  s c e n ari o s ,  t o  m o d e l s ,  t o  d o wn s calin g,  an d  fin all y  t o  impacts, make costly decisions difficult to assess. This problem grows acute if credible attributions must be made to causal drivers or policy impacts.
+4.7 .2  The Science of Climate Extremes
+One goal is to develop quantifiable insights on the impacts of global cli-
+mate change on weather or hydrological extreme stresses and extreme events at regional to decadal scales. Precise and local predictions, for example, the likelihood of an extreme event on a given day of any given year a decade later, will never be achievable, owing to the chaotic nature of the climate system as well as the limits to precision of measurements and our inability to model all aspects of the process physics. However, probability density functions of the weather and hydrology, for example, likelihoods of intensity- duration- frequency (IDF) of extreme events or of mean change leading to extreme stress, may be achievable targets. The tools of choice range from the two traditional pillars of science: theory (e.g., advances in physical understanding and high- resolution process 102   ◾   Computational Intelligent Data Analysis for Sustainable Development
+models of atmospheric or oceanic climate, weather, or hydrology) to 
+experimentation (e.g., development of remote and in- situ  sensor systems 
+as well as related cyber- infrastructures to monitor the Earth and environ-mental systems). However, perhaps the most significant breakthroughs are expected from the relatively new pillars: computational sciences and informatics. Research in the computational sciences for climate extremes science include the computational data sciences (e.g., high- performance analytics based on extreme value theory and nonlinear data sciences to develop predictive insights based on a combination of observations and climate model simulations) and computational modeling (e.g., regional scale climate models, models of hydrology, improvements in high- resolution processes within general circulation models, as well as feed-back to model development based on comparisons of simulations with observations), while the informatics aspects include data management and discovery (e.g., development of methodologies for geographic data integration and management, knowledge discovery from sensor data, and geospatial- temporal uncertainty quantification).
+4.7 .3  The Science of Climate Impacts
+The study of climate extremes is inextricably linked to the study of 
+impacts, including risks and damage assessments as well as adaptation and mitigation strategies. Thus, an abnormally hot summer or high occur-rence of hurricanes in unpopulated or remote regions of the world, which do not otherwise affect resources or infrastructures, have little or no cli-mate impact on society. On the other hand, extreme events such as the after effects of Hurricane Katrina have extreme impacts owing to complex interactions among multiple effects: a large hurricane hitting an urban area, an already vulnerable levee breaking down because of the flood waters, as well as an impacted society and response systems that are nei-ther robust nor resilient to shocks. In general, climate change mitigation (e.g., emission policies and regulations to possible weather modification and geo engineering strategies) and adaptation (e.g., hazards and disaster preparedness, early warning and humanitarian assistance or the manage-ment of natural water, nutritional and other resources, as well as possible migration and changes in regional population growth or demographics) m ust be based o n acti o nab l e p r edi ctiv e ins igh ts tha t co ns i de r th e in te r -action of climate extremes science with the critical infrastructures and key resources, population, and society. While the science of impacts can be challenging and relatively difficult to quantify, given recent advances Climate Informatics    ◾   103  
+in machine learning, geospatial modeling, data fusion, and Geographic 
+Information Systems (GIS), this is a fertile area for progress on cli-mate informatics.
+4.8  RECONSTRUCTING PAST CLIMATE
+The most comprehensive observations of Earth’s climate span only the 
+past one to two hundred years [105]. This time period includes the estab-lishment of long- term and widespread meteorological stations across the continental landmasses [6], ocean observing networks from ships and buoys [114] and, within the more recent past, remote sensing from satel-lites [109]. Much of our understanding about the climate system and con-temporary climate change comes from these and related observations and their fundamental role in evaluating theories and models of the climate system. Despite the valuable collection of modern observations, however, two factors limit their use as a description of the Earth’s climate and its variability: (1) relative to known timescales of climate variability, they span a brief period of time; and (2) much of the modern observational interval is during an emergent and anomalous climate response to anthro-pogenic emissions of greenhouse gases [36]. Both of these factors limit assessments of climate variability on multi- decadal and longer times-cales, or characterizations of climatic mean states under different forcing
+* 
+scenarios (e.g., orbital configurations or greenhouse gas concentrations). Efforts to estimate climate variability and mean states prior to the instru-mental period are thus necessary to fully characterize how the climate can change and how it might evolve in the future in response to increasing greenhouse gas emissions.
+Paleoclimatology is the study of Earth’s climate history and offers 
+estimates of climate variability and change over a range of timescales and climate regimes. Among the many time periods of relevance, the Common Era (CE; the past two millennia) is an important target because the abundance of high- resolution paleoclimatic proxies (e.g., tree rings, ice cores, cave deposits, corals, and lake sediments) over this time interval allows seasonal- to- annual reconstructions on regional- to- global spatial 
+* A “forcing” is a specific driver of climate change, external to the climate models—for instance, changes in the composition of well- mixed greenhouse gases (e.g., CO
+2 or CH4), changes in the 
+land surface due to deforestation or urbanization, changes in air pollution, changes in the sun’s input, or the impact of large volcanic eruptions. Each forcing can be usefully characterized by the impact it has on the radiative balance at the top of the atmosphere: positive forcings increase the energy coming into the climate system and hence warm the planet, while negative forcings cool the climate.104   ◾   Computational Intelligent Data Analysis for Sustainable Development
+scales [40]. The CE also spans the rise and fall of many human civiliza-
+tions, making paleoclimatic information during this time period impor-tant for understanding the complicated relationships between climate and organized societies [7, 15].
+Given the broad utility and vast number of proxy systems that are 
+involved, the study of CE climate is a wide- ranging and diverse enterprise. The purpose of the following discussion is not meant to survey this field as a whole, but instead to focus on a relatively recent pursuit in CE paleo-climatology that seeks to reconstruct global or hemispheric temperatures using syntheses of globally distributed multi- proxy networks. This par-ticular problem is one that may lend itself well to new and emerging data analysis techniques, including machine learning and data mining meth-ods. The motivation of the following discussion therefore is to outline the basic reconstruction problem and describe how methods are tested in syn-thetic experiments.
+4.8.1  The Global Temperature Reconstruction Problem
+I t  i s  c o m m o n  t o  s e p a r a t e  g l o b a l  o r  h e m i s p h e r i c  ( l a r g e -  s c a l e )  t e m p e r a -
+ture reconstruction methods into two categories. The first involves index methods that target large- scale indices such as hemispheric mean tem-peratures [13, 35, 51, 58]; the second comprises climate field reconstruc-tion (CFR) methods that target large- scale patterns, that is, global maps of temperature change [21, 55, 56, 59, 88]. Although both of these approaches often share common methodological foundations, the following discus-sion focuses principally on the CFR problem.
+Large- scale temperature CFRs rely on two primary data sets. The first is 
+monthly or annual gridded (5° latitude × 5° longitude) temperature prod-ucts that have near- global coverage beginning in the mid- to- late 19th cen-tury. These gridded temperature fields have been derived from analyses of land- and sea- based surface temperature measurements from meteoro-logical stations, and ship- and buoy- based observing networks [6, 42]. The second dataset comprises collections of multiple climate proxy archives [58], each of which has been independently analyzed to establish their sen-sitivity to some aspect of local or regional climate variability. These proxy records are distributed heterogeneously about the globe (
+Figure  4.4 ), 
+span variable periods of time, and each is subject to proxy- specific errors and uncertainties.
+The basic premise of CFR techniques is that a relationship can be deter-
+mined between observed climate fields and multi- proxy networks during Climate Informatics    ◾   105  
+their common interval of overlap. Once defined, this relationship can be 
+used to estimate the climate fields prior to their direct measurement using the multi- proxy network that extends further into the past. Figure  4.4 represents this concept schematically using a data matrix that casts the CFR formalism as a missing data problem. Note that this missing data approach was originally proposed for CFRs using regularized expectation maximization [77], and has since become a common method for recon-structions targeting the CE [56, 57, 59]. The time- by- space data matrix in Figure 4.4 is constructed first from the instrumen tal data, with ro ws corresponding to years and columns corresponding to the number of grid cells in the instrumental field. For a typical CFR targeting an annual and global 5° × 5° temperature field, the time dimension is several centuries to multiple millennia, and the space dimension is on the order of one to two thousand grid cells. The time dimension of the data matrix is determined by the length of the calibration interval during which time the temper-ature observations are available, plus the reconstruction interval that is 
+90–180 –120 –60 0Multi-Proxy Network Distribution
+60 120 180
+Reconstruction Pe riod
+Space
+(b)(a)Data Matrix
+Number of
+Proxies
+Multi-Proxy NetworkInstrumental Temperature Record
+(Calibration Pe riod)Increasing Time Before Present60
+30
+0
+–30
+–60–90
+FIGURE  4.4 (a) Representation of the global distribution of the most up- to- date 
+global multi- proxy network used by Mann et al. [58]. Grey squares indicate the 5° grid cells that contain at least one proxy in the unscreened network from ref. [58]. (b) Schematic of the data matrix for temperature field reconstructions spanning all or part of the CE. Grey regions in the data matrix are schematic representa-tions of data availability in the instrumental temperature field and the multi- proxy matrix. White regions indicate missing data in the various sections of the data matrix.106   ◾   Computational Intelligent Data Analysis for Sustainable Development
+determined by the length of available proxy records. The number of spatial 
+locations may be less than the 2,592 possible grid cells in a 5° global grid, and depends on the employed surface temperature analysis product. A reconstruction method may seek to infill grid cells that are missing tem-perature observations [ 103], or simply leave them missing, depending on the number of years that they span [59]. The second part of the composite data matrix is formed from the multi- proxy network, the dimensions of which are determined by the longest proxy records and the total number of proxies (typically on the order of a few hundred to a thousand). The number of records in multi- proxy networks typically decreases back in time, and may reduce to a few tens of records in the earliest period of the reconstruction interval. The temporal resolution of the proxy series may also vary from seasonal to decadal.
+Multiple methods have been used for CFRs, including a number of new 
+and emerging techniques within Bayesian frameworks [52, 103]. The vast majority of CFRs to date, however, have applied forms of regularized, multi-variate linear regression, in which a linear regression operator is estimated during a period of overlap between the temperature and proxy matrices. Such linear regression approaches work best when the time dimension in the calibration interval (
+Figure 4.4 ) is much larger than the spatial dimen-
+sion, because the covariance between the temperature field and the prox-ies is more reliably estimated. The challenge for CFR methods involves the manner in which the linear regression operator is estimated in practi-cal situations when this condition is not met. It is often the case in CFR applications that the number of target variables exceeds the time dimen-sion, yielding a rank- deficient problem. The linear regression formalism therefore requires some form of regularization. Published linear methods for global temperature CFRs vary primarily in their adopted form of reg-ularization (see [88, 102] for general discussions on the methodological formalism). Matrix factorizations such as Singular Value Decomposition [29] of the temperature and proxy matrices are common first steps. If the squared singular values decrease quickly , as is often the case in climato-logical data where leading climate patterns dominate over many more weakly expressed local patterns or noise, reduced- rank representations of the temperature and proxy matrices are typically good approximations of the full- rank versions of the matrices. These reduced- rank temperature and proxy matrices therefore are used to estimate a linear regression oper-ator during the calibration interval using various multivariate regression techniques. Depending on the method used, this regression operator may Climate Informatics    ◾   107  
+be further regularized based on analyses of the cross- covariance or cor-
+relation of the reduced temperature and proxy matrices. Multiple means of selecting rank reductions at each of these steps have been pursued, such as selection rules based on analyses of the singular value (or eigenvalue) spectrum [57] or minimization of cross- validation statistics calculated for the full range of possible rank- reduction combinations [88].
+4.8.2  Pseudoproxy Experiments
+The literature is replete with discussions of the variously applied CFR 
+methods and their performance (see [29] for a cogent summary of many employed methods). Given this large number of proposed approaches, it has become important to establish means of comparing methods using common datasets. An emerging tool for such comparisons is millennium- length, forced transient simulations from Coupled General Circulation Models (CGCMs) [1, 30]. These model simulations have been used as syn-thetic climates in which to evaluate the performance of reconstruction methods in tests that have been termed pseudoproxy experiments (see [85] for a review). The motivation for pseudoproxy experiments is to adopt a common framework that can be systematically altered and evaluated. They also provide a much longer, albeit synthetic, validation period than can be achieved with real- world data, and thus methodological evalua-tions can extend to lower frequencies and longer timescales. Although one must always be mindful of how the results translate into real- world impli-cations, these design attributes allow researchers to test reconstruction techniques beyond what was previously possible and to compare multiple methods on common datasets.
+The basic approach of a pseudoproxy experiment is to extract a por-
+tion of a spatio temporally complete CGCM field in a way that mimics the available proxy and instrumental data used in real- world reconstructions. The principal experimental steps proceed as follows: (1) pseudoinstru-mental and pseudoproxy data are sub sampled from the complete CGCM field from locations and over temporal periods that approximate their real- world data availability; (2) the time series that represent proxy infor-mation are added to noise series to simulate the temporal (and in some cases spatial) noise characteristics that are present in real- world proxy networks; and (3) reconstruction algorithms are applied to the model- sampled pseudo- instrumental data and pseudoproxy network to produce a reconstruction of the climate simulated by the CGCM. The culminating fourth step is to compare the derived reconstruction to the known model 108   ◾   Computational Intelligent Data Analysis for Sustainable Development
+target as a means of evaluating the skill of the applied method and the 
+uncertainties expected to accompany a real- world reconstruction product. Multi- method comparisons can also be undertaken from this point.
+Multiple datasets are publicly available for pseudoproxy experiments 
+through supplemental Websites of published papers [57, 87, 89, 103]. The Paleoclimate Reconstruction Challenge is also a newly established online portal through the Paleoclimatology Division of the National Oceanographic and Atmospheric Administration that provides additional pseudoproxy datasets.
+* This collection of common datasets is an important 
+resource for researchers wishing to propose new methodological applica-tions for CFRs, and is an excellent starting point for these investigations.
+4.8.3  Climate Reconstructions and the Future
+More than a decade of research on deriving large- scale temperature recon-
+structions of the CE has yielded many insights into our past climate and established the utility of such efforts as a guide to the future. Important CFR improvements are nevertheless still necessary and leave open the potential for new analysis methods to have significant impacts on the field. Broad assessments of the multivariate linear regression framework have shown the potential for variance losses and mean biases in recon-structions on hemispheric scales [13, 51, 86], although some methods have demonstrated significant skill for reconstructions of hemispheric and global indices [57]. The spatial skill of CFRs, however, has been shown in pseudoproxy experiments to vary widely, with some regions showing significant errors [89]. Establishing methods with improved spatial skill is therefore an important target for alternative CFR approaches. It also is critical to establish rigorous uncertainty estimates for derived recon-structions by incorporating a more comprehensive characterization of known errors into the reconstruction problem. Bayesian and ensemble approaches lend themselves well to this task and constitute another open area of pursuit for new methodological applications. Process- based char-acterizations of the connection between climate and proxy responses also are becoming more widely established [2, 22, 76, 100]. These developments make it possible to incorporate physically based forward models as con-straints on CFR problems and further open the possibility of methodolog-ical advancement. Recent Bayesian studies have provided the groundwork 
+* http://www.ncdc.noaa.gov/ paleo/ pubs/ pr- challenge/ pr- challenge.html.Climate Informatics    ◾   109  
+for such approaches [52, 103], while paleoclimatic assimilation techniques 
+have also shown promise [112].
+In the context of machine learning, the problem of reconstructing parts 
+of a missing data matrix has been widely studied as the matrix completion problem (see 
+Figure  4.4 ). A popular example of the problem is encoun-
+tered in movie recommendation systems, in which each user of a given system rates a few movies out of tens of thousands of available titles. The system subsequently predicts a tentative user rating for all possible movies, and ultimately displays the ones that the user might like. Unlike traditional missing value imputation problems where a few entries in a given data matrix are missing, in the context of matrix completion, one works with mostly missing entries (e.g., in movie recommendation sys-tems, 99% or more of the matrix is typically missing). Low- rank matrix factorization methods have been shown to be quite successful in such matrix completion problems [48, 73]. Further explorations of matrix com-pletion methods for the paleoclimate reconstruction problem therefore are fully warranted. This includes investigations into the applicability of exist-ing methods, such as probabilistic matrix factorization [73] or low- rank and sparse decompositions [ 114], as well as explorations of new methods that take into account aspects specific to the paleoclimate reconstruction. Methods that can perform completions along with a confidence score are more desirable because uncertainty quantification is an important desid-eratum for paleoclimate.
+F i n a l l y ,  i t  i s  i m p o r t a n t  t o  r e t u r n  t o  t h e  f a c t  t h a t  e x t e n s i v e  m e t h o d -
+ological work in the field of CE paleoclimatology is aimed, in part, at better constraining natural climate variability on decadal- to- centennial timescales. This timescale of variability, in addition to expected forced changes, will be the other key contribution to observed climate during the 21st century. Whether we are seeking improved decadal predictions [93] or refined projections of 20th  century regional climate impacts [28], these estimates must incorporate estimates of both forced and natural variabil-ity. It therefore is imperative that we fully understand how the climate naturally varies across a range of relevant timescales, how it changes when forced, and how these two components of change may couple together. This understanding cannot be achieved from the modern instrumental record alone, and the CE is a strategic paleoclimate target because it pro-vides both reconstructions with high temporal and spatial resolution and an interval over which CGCM simulations are also feasible. Combining 110   ◾   Computational Intelligent Data Analysis for Sustainable Development
+these two sources of information to assess model projections of future cli-
+mate therefore is itself an important future area of discovery. Analyses that incorporate both the uncertainties in paleoclimatic estimates and the ensemble results of multiple model simulations will be essential for these assessments and is likely a key component of climate informatics as the field evolves into the future.
+4.9  APPLICATIONS TO PROBLEMS IN POLAR REGIONS
+Another potential application of machine learning concerns the impact 
+of climate change at the poles and the interaction between the poles and climate in general. Because of the difficulty in collecting data from polar regions, the relatively expensive costs, and logistics, it is important to maximize the potential benefit deriving from the data. The paucity of s urf a c e -  m e as ur e d  da ta  i s  c o m p l e m e n t e d  b y  th e  ri c hn ess  an d  in c r e as in g  volume of either satellite/ airborne data and model outputs. In this regard, powerful tools are needed—not only to analyze, manipulate, and visual-ize large datasets, but also to search and discover new information from different sources—in order to exploit relationships between data and pro-cesses that are not evident or captured by physical models.
+The number of applications of machine learning to study polar regions 
+is not high although it has been increasing over the past decade. This is especially true in those cases when data collected from space borne sensors are considered. For example, Tedesco and colleagues [98, 99] use artificial neural networks (ANNs) or genetic algorithms to estimate snow param-eters from space borne microwave observations. Soh and Tsatsoulis [91] use an Automated Sea Ice Segmentation (ASIS) system that automatically segments Synthetic Aperture Radar (SAR) sea ice imagery by integrating image processing, data mining, and machine learning methodologies. The system is further developed by Soh et al. [92], where an intelligent sys-tem for satellite sea ice image analysis called Advanced Reasoning using Knowledge for Typing Of Sea ice (ARKTOS) “mimicking the reason-ing process of sea ice experts” is presented. Lu and Leen [54] use semi- supervised learning to separate snow and non- snow areas over Greenland using a multispectral approach. Reusch [71] applies tools from the field of ANNs to reconstruct centennial- scale records of West Antarctic sea- ice variability using ice- core datasets from 18 West Antarctic sites and satellite- based records of sea ice. ANNs are used as a nonlinear tool to ice- core predictors to sea- ice targets such as sea salt chemistry to sea ice edge. One of the results from this study is that, in general, reconstructions Climate Informatics    ◾   111  
+are quite sensitive to predictor used, and not all predictors appear to be 
+useful. Finally, Gifford [27] shows a detailed study of team learning, col-laboration, and decision applied to ice- penetrating radar data collected in Greenland in May 1999 and September 2007 as part of a model- creation effort for sub glacial water presence classification.
+The above- mentioned examples represent a few cases where machine 
+l e a r n i n g  t o o l s  h a v e  b e e n  a p p l i e d  t o  p r o b l e m s  f o c u s i n g  o n  s t u d yi n g  th e  polar regions. Although the number of studies appears to be increasing, likely because of both the increased research focusing on climate change and the poles and the increased computational power allowing machine learning tools to expand in their usage, they are still relatively rare com-pared to simpler but often less efficient techniques.
+Machine learning and data mining can be used to enhance the value 
+of the data by exposing information that would not be apparent from single- dataset analyses. For example, identifying the link between dimin-ishing sea ice extent and increasing melting in Greenland can be done through physical models attempting to model the connections between the two through the exchange of atmospheric fluxes. However, large- scale connections (or others at different temporal and spatial scales) might be revealed through the use of data- driven models or, in a more sophisticated fashion, through the combination of both physical and data- driven mod-els. Such an approach would, among other things, overcome the limitation of the physical models that, even if they represent the state- of- the- art in the corresponding fields, are limited by our knowledge and understanding of the physical processes. ANNs can also be used in understanding not only the connections among multiple parameters (through the analysis of the neurons connections), but also to understand potential temporal shifts in the importance of parameters on the overall process (e.g., increased importance of albedo due to the exposure of bare ice and reduced solid precipitation in Greenland over the past few years). Applications are not limited to a pure scientific analysis but also include the management of information, error analysis, missing linkages between databases, and improving data acquisition procedures.
+In synthesis, there are many areas in which machine learning can 
+support studies of the poles within the context of climate and climate change. These include climate model parameterizations and multimodel ensembles of projections for variables such as sea ice extent, melting in Greenland, and sea- level rise contribution, in addition to those discussed in previous sections.112   ◾   Computational Intelligent Data Analysis for Sustainable Development
+4.10  TOWARD A CLIMATE INFORMATICS TOOLBOX
+Recent additions to the toolbox of modern machine learning have consid-
+erable potential to contribute to and greatly improve the prediction and inference capability for climate science. Climate prediction has significant challenges, including high dimensionality, multiscale behavior, uncer-tainty, and strong nonlinearity, and also benefits from having historical data and physics- based models. It is imperative that we bring all available, relevant tools to bear on the climate arena. In addition to the methods cited in Section 4.2 and in subsequent sections, here we briefly describe several other methods (some proposed recently) that one might consider to apply to problems in climate science.
+We begin with CalTech and Los Alamos National Laboratory’s recently 
+developed Optimal Uncertainty Quantification (OUQ) formalism [67, 79]. OUQ is a rigorous, yet practical, approach to uncertainty quantification that provides optimal bounds on uncertainties for a given, stated set of assumptions. For example, OUQ can provide a guarantee that the proba-bility that a physical variable exceeds a cut off is less than some value ϵ. This 
+method has been successfully applied to assess the safety of truss struc-tures to seismic activity. In particular, OUQ can provide the maximum and minimum values of the probability of failure of a structure as a func-tion of earthquake magnitude. These probabilities are calculated by solv-ing an optimization problem that is determined by the assumptions in the problem. As input, OUQ requires a detailed specification of assumptions. One form of assumption may be (historical) data. The method’s poten-tial for practical use resides in a reduction from an infinite- dimensional, nonconvex optimization problem to a finite- (typically low) dimensional one. For a given set of assumptions, the OUQ method returns one of three answers: (1) Yes, the structure will withstand the earthquake with prob-ability greater than p; (2) No, it will not withstand it with probability p; or 
+(3) Given the input, one cannot conclude either (i.e., undetermined). In the undetermined case, more/ different data/ assumptions are then required to say something definite. Climate models are typically infinite- dimensional dynamical systems, and a given set of assumptions will reduce this to a finite- dimensional problem. The OUQ approach could address such ques-tions as whether (given a potential scenario) the global mean temperature increase will exceed some threshold T, with some probability ϵ.
+To improve the performance (e.g., reduce the generalization error) in 
+statistical learning problems, it sometimes helps to incorporate domain Climate Informatics    ◾   113  
+knowledge. This approach is particularly beneficial when there is limited 
+data from which to learn, as is often the case in high- dimensional problems (genomics is another example). This general philosophy is described in a number of approaches such as learning with side information, Universum Learning [84], and learning from non- examples [83]. Learning with the Universum and learning from non- examples involve augmenting the available data with related examples from the same problem domain, but not necessarily from the same distribution. Quite often, the generalization error for predictions can be shown to be smaller for carefully chosen aug-mented data, but this is a relatively uncharted field of research and it is not yet known how to use this optimally. One can imagine using an ensemble of climate models in conjunction with data from model simulations to improve predictive capacity. How to optimally select Universum or non- examples is an open problem.
+Domain knowledge in the form of competing models provides the basis 
+of a game- theoretic approach of model selection [11]. This relates to recent work in applying algorithms for online learning with experts to combin-ing the predictions of the multi model ensemble of GCMs [63]. On his-torical data, this online learning algorithm’s average prediction loss nearly matched that of the best performing climate model. Moreover, the perfor-mance of the algorithm surpassed that of the average model prediction, which is a common state- of- the- art method in climate science. A major advantage of these approaches, as well as game- theoretic formulations, is their robustness, including the lack of assumptions regarding linearity and noise. However, because future observations are missing, algorithms f o r  u n s u p e r v i s e d  o r  s e m i -  s u p e r v i s e d  l e a r n i n g  w i t h  e x p e r t s  s h o u l d  b e  developed and explored.
+Conformal prediction is a recently developed framework for learning 
+based on the theory of algorithmic randomness. The strength of confor-mal prediction is that it allows one to quantify the confidence in a predic-tion [80]. Moreover, the reliability of the prediction is never overestimated. This is, of course, very important in climate prediction. To apply the suite of tools from conformal prediction, however, one needs to have iid (inde-pendent, identically distributed) or exchangeable data. While this is a serious restriction, one can imagine using iid computer simulations and checking for robustness. Conformal prediction is fairly easy to use and can be implemented as a simple wrapper to existing classifiers or regres-sion algorithms. Conformal prediction has been applied successfully in 114   ◾   Computational Intelligent Data Analysis for Sustainable Development
+genomics and medical diagnoses. It is likely worthwhile to apply confor-
+mal prediction to other complex problems in computational science.
+Statistical Relational Learning [26] offers a natural framework for infer-
+ence in climate. Included within this set of methods are graphical models [47], a flexible and powerful formalism with which to carry out inference for large, highly complex systems (some of which were discussed in Sections 4.5 and 4.6). At one extreme, graphical models can be derived solely from data. At the other extreme, graphical models provide a generalization of Kalman filters or smoothers, where data are integrated with a model. This general approach is quite powerful but requires efficient computation of conditional probabilities. As a result, one might explore how to adapt or extend the cur-rent suite of belief propagation methods to climate- specific problems.
+Finally, for all of the above methods, it would be helpful if the learn-
+ing algorithm could automatically determine which information or data it would be useful to get next. The “optimal learning” formalism addresses this question [69]. This gradient learning approach can be applied to a whole host of problems for learning where one has limited resources to allocate for information gathering. Optimal learning has been applied successfully to experiment design, in particular in the pharmaceutical industry, where it has the potential to reduce the cost (financial, time, etc.) of the drug discovery process. Optimal learning might be applied to climate science in order to guide the next set of observations and/ or the next simulations.
+To conclude, there is a suite of recently developed machine learning 
+methods whose applicability and usefulness in climate science should be explored. At this point, we have only begun to scratch the surface. If these m e t h o d s  p r o v e  s u c c e s s f u l  i n  c l i m a t e  s t u d i e s ,  w e  w o u l d  e x p e c t  t h e m  t o  apply elsewhere—where one has a model of the physical system and can access data.
+4.11  DATA CHALLENGES AND OPPORTUNITIES 
+IN CLIMATE INFORMATICS
+Here we discuss additional challenges and important issues in analyzing 
+climate data.
+4.11.1  Issues with Cross- Class Comparisons
+There is often a need to compare across different classes of data, whether to 
+provide ground truth for a satellite retrieval or to evaluate a climate model prediction or to calibrate a proxy measurement. But because of the different characteristics of the data, comparing “apples to apples” can be difficult.Climate Informatics    ◾   115  
+One of the recurring issues is the difference between internal variabil-
+ity (or weather) and climate responses tied to a specific external forcing. The internal variability is a function of the chaotic dynamics in the atmo-sphere and cannot be predicted over time periods longer than 10 days or so (see Section 4.6). This variability, which can exist on all timescales, exists also in climate models; but because of the sensitive dependence on initial conditions, any unique simulation will have a different realization of the internal variability. Climate changes are then effectively defined as the ensemble mean response (i.e., after averaging out any internal vari-ability). Thus, any single realization (such as the real- world record) must be thought of as a forced signal (driven by external drivers) combined with a stochastic weather component.
+The internal variability increases in relative magnitude as a function 
+of decreasing time or spatial scale. Thus, comparisons of the specific time evolution of the climate system need to either take the variability into account or use specific techniques to minimize the difference from the real world. For instance, “nudged” simulations use observed winds from the re analyses to keep the weather in the model loosely tied to the observations. Simulations using the observed ocean temperatures as a boundary condition can do a good job of synchronizing the impacts of variability in the ocean on the atmospheric fields. Another way to mini-mize the impact of internal variability is to look for property- to- property correlations to focus on specific processes that, although they may occur at different points in time or space, can nonetheless be compared across models and observations.
+Another issue is that model output does not necessarily represent exact 
+topography or conditions related to an in- situ  o b s e r v a t i o n .  Th e  a v e r -
+age height of a specific grid box might not correspond to the height of a mountain- based observing platform, or the resolved shape of the coastline might make a difference of 200 kilometers or so in the distance of a station to the shore. These issues can be alleviated to some extent if comparisons focus on large- scale gridded data. Another technique is to “downscale” the model output to specific locations, either statistically (based on observed correlations of a local record to larger- scale features of the circulation) or dynamically (using an embedded RCM). These methods have the poten-tial to correct for biases in the large- scale model, but many practical issues remain in assessing by how much.
+Finally, observations are a function of a specific observing methodol-
+ogy that encompasses technology, practice, and opportunity. These factors 116   ◾   Computational Intelligent Data Analysis for Sustainable Development
+can impart a bias or skewness to the observation relative to what the real 
+world may nominally be doing. Examples in satellite remote sensing are common—for example, a low cloud record from a satellite will only be able to see low clouds when there are no high clouds. Similarly, a satellite record of “mid- tropospheric” temperatures might actually be a weighted integral of temperatures from the surface to the stratosphere. A paleo-climate record may be of a quantity that while related to temperature or precipitation, may be a complex function of both, weighted towards a spe-cific season. In all these cases, it is often advisable to create a ‘forward model’ of the observational process itself to post- process the raw simula-tion output to create more commensurate diagnostics.
+4.11.2  Climate System Complexity
+A further issue arises in creating statistical models of the climate system 
+because both the real  world and dynamical models have a large number of different physical variables.
+Even simplified models can have hundreds of variables, and while not 
+all of them are essential to determining the state of the system, one var-iable is frequently not sufficient. Land, atmosphere, and ocean processes all have different dominant timescales, and thus different components are essential at different scales. Some physical understanding is thus neces-sary to make the proper variable/ data choices, even with analysis schemes that extract structure from large datasets. Furthermore, these systems are chaotic, that is, initial conditions that are practically indistinguishable from each other in any given observing system will diverge greatly from each other on some short timescale. Thus, extracting useful predictions requires more than creating more accurate models—one needs to deter-mine which aspects are predictable and which are not.
+4.11.3  Challenge: Cloud- Computing- Based Reproducible 
+Climate Data Analysis
+The study of science requires reproducible results: science is a body of 
+work where the community strives to ensure that results are not from the unique abilities and circumstances of one particular person or group. T r a d i t i o n a l l y ,  t h i s  h a s  b e e n  d o n e  i n  l a r g e  p a r t  b y  p u b l i s h i n g  p a p e r s ,  but the scale of modern climate modeling and data analysis efforts has far outstripped the ability of a journal article to convey enough information to allow reproducibility. This is an issue both of size and of complexity: model results are much larger than can be conveyed in a few pages, and Climate Informatics    ◾   117  
+both models and analysis procedures are too complex to be adequately 
+described in a few pages.
+The sheer size of GCMs and satellite datasets is also outstripping our 
+traditional data storage and distribution methods: frequently, only a few variables from a model’s output are saved and distributed at high reso-lution, and the remaining model output is heavily averaged to generate datasets that are sufficiently small.
+One promising approach to addressing these problems is cloud- 
+computing- based reproducible climate data analysis. Having both the data and the analyses resident in the computational cloud allows the details of the computation to be hidden from the user; so, for example, data- intensive portions of the computation could be executed close to where the data resides. But these analyses must be reproducible, which brings not only technical challenges of archiving and finding, describing, and publishing analysis procedures, but also institutional challenges of ensuring that the large datasets that form the basis of these analyses remain accessible.
+4.11.3.1  Data Scale
+The size of datasets is rapidly outstripping the ability to store and serve the 
+data. We have difficulty storing even a single copy of the complete archive of the CMIP3 model results, and making complete copies of those results and distributing them for analysis becomes both a large undertaking and limits the analysis to the few places that have data storage facilities of that scale. Analysis done by the host prior to distribution, such as averag-ing, reduces the size to something more manageable, but currently those reductions are chosen far in advance, and there are many other useful analyses that are not currently being done.
+A cloud- based analysis framework would allow such reductions to be 
+chosen and still executed on machines with fast access to the data.
+4.11.3.2  Reproducibility and Provenance Graphs
+A cloud- based analysis framework would have to generate reproducible 
+documented results; that is, we would not only need the ability to rerun a calculation and know that it would generate the same results, but also know precisely what analysis had been done. This could be achieved, in part, by having standardized analysis schemes, so that one could be sure precisely what was calculated in a given data filter, and also important is system-atically tracking the full provenance of the calculation. This provenance 
+graph , showing the full network of data filters and initial, intermediate, 118   ◾   Computational Intelligent Data Analysis for Sustainable Development
+and final results, would provide the basis of both reproducibility and com-
+munication of results. Provenance graphs provide the information neces-sary to rerun a calculation and get the same results; they also provide the basis of the full documentation of the results. This full network would need to have layers of abstraction so that the user could start with an over-all picture and then proceed to more detailed versions as needed.
+4.12  CONCLUSION
+The goal of this chapter is to inspire future work in the nascent field of 
+climate informatics. We hope to encourage work not only on some of the challenge problems proposed here, but also on new problems. A profuse amount of climate data of various types is available, providing a rich and fertile playground for future machine learning and data mining research. Even exploratory data analysis could prove useful for accelerating discov-ery. To that end, we have prepared a climate informatics wiki as a result of the First International Workshop on Climate Informatics , which includes 
+climate data links with descriptions, challenge problems, and tutorials on machine learning techniques [14]. We are confident that there are myriad collaborations possible at the intersection of climate science and machine learning, data mining, and statistics. We hope our work will encourage progress on a range of emerging problems in climate informatics.
+ACKNOWLEDGMENTS
+The First International Workshop on Climate Informatics  (2011) served 
+as an inspiration for this chapter, and some of these topics were dis-c u s s e d  t h e r e .  Th e  w o r k s h o p  s p o n s o r s  i n c l u d e d  L a m o n t - D o h e r t y  E a r t h  Observatory (LDEO)/Goddard Institute for Space Studies ( GISS) Climate Center, Columbia University; Information Science and Technology Center, Los Alamos National Laboratory; NEC Laboratories America, Department of Statistics, Columbia University; Yahoo! Labs; and The New York Academy of Sciences.
+KS was supported in part by National Science Foundation (NSF) Grant 
+1029711. MKT and MBB are supported by a grant/ cooperative agreement from the National Oceanic and Atmospheric Administration (NOAA. NA05OAR4311004). The views expressed herein are those of the authors and do not necessarily reflect the views of NOAA or any of its sub agencies. AB was supported, in part, by NSF grants IIS-1029711, IIS-0916750, and 
+IIS-0812183, and NSF CAREER award IIS-0953274. ARG’s research Climate Informatics    ◾   119  
+reported here has been financially supported by the Oak Ridge National 
+Laboratory and Northeastern University grants, as well as the National Science Foundation award 1029166, in addition to funding from the U.S. Department of Energy and the Department of Science and Technology o f th e Go v ernm en t o f In dia. The w o rk o f JES was su ppo rted in part b y NSF grant ATM0902436 and by NOAA grants NA07OAR4310060 and NA10OAR4320137. MT would like to acknowledge NSF grant ARC 0909388. GAS is supported by the NASA Modeling and Analysis Program.
+REFERENCES
+ 1. C.M. Ammann, F. Joos, D.S. Schimel, B.L. Otto- Bliesner, and R.A. Tomas. 
+Solar influence on climate during the past millennium: Results from tran-sient simulations with the NCAR Climate System Model. Proc. U.S. Natl. 
+Acad. Sci.,  104(10): 3713–3718, 2007.
+ 2. K.J. Anchukaitis, M.N. Evans, A. Kaplan, E.A. Vaganov, M.K. Hughes, and 
+H.D. Grissino- Mayer. Forward modeling of regional scale tree- ring pat-terns in the southeastern United States and the recent influence of summer drought. Geophys. Res. Lett.,  33, L04705, DOI:10.1029/2005GL025050.
+ 3. A.G. Barnston and T.M. Smith. Specification and prediction of global sur-
+face temperature and prec ipitation from global SST using C CA. J. Climate,  9: 
+2660–2697, 1996.
+ 4. C.M. Bishop. Machine Learning and Pattern Recognition . New Y ork: Springer, 
+2007.
+ 5. C.S. Bretherton, C. Smith, and J.M. Wallace. An intercomparison of methods 
+for finding coupled patterns in climate data. J. Climate, 5: 541–560, 1992.
+ 6. P . Brohan, J.J. Kennedy, I. Harris, S.F.B. Tett, and P .D. Jones. Uncertainty esti-
+mates in regional and global observed temperature changes: A new dataset from 1850. J. Geophys. Res.,  111, D12106, 2006.
+ 7. B.M. Buckley, K.J. Anchukaitis, D. Penny et al. Climate as a contributing 
+factor in the demise of Angkor, Cambodia. Proc. Nat. Acad. Sci. USA, 107: 
+6748–6752, 2010.
+ 8. S.J. Camargo and A.G. Barnston. Experimental seasonal dynamical forecasts 
+of tropical cyclone activity at IRI. Wea. Forecasting,  24: 472–491, 2009.
+ 9. S.J. Camargo, A.W . Robertson, A.G. Barnston, and M. Ghil. Clustering of east-
+ern North Pacific tropical cyclone tracks: ENSO and MJO effects. Geochem. 
+Geophys. and Geosys.,  9:Q06V05, 2008. doi:10.1029/2007GC001861.
+ 10. M.A. Cane, S.E. Zebiak, and S.C. Dolan. Experimental forecasts of El Niño. 
+Nature, 321: 827–832, 1986.
+ 11. N. Cesa- Bianchi and G. Lugosi. Prediction, Learning and Games.  Cambridge 
+(UK) and New Y ork: Cambridge University Press, 2006.
+ 12. V . Chandrasekaran, S. Sanghavi, P . Parril, and A. Willsky. Rank- sparsity 
+incoherence for matrix decomposition. SIAM Journal of Optimization,  
+21(2): 572–596, 2011.120   ◾   Computational Intelligent Data Analysis for Sustainable Development
+ 13. B. Christiansen, T. Schmith, and P . Thejll. A surrogate ensemble study of 
+climate reconstruction methods: Stochasticity and robustness. J. Climate,  
+22(4): 951–976, 2009.
+ 14. Climate Informatics wiki: http://sites.google.com/ site/1stclimateinformatics/
+ 15. E.R. Cook, R. Seager, M.A. Cane, and D.W . Stahle. North American drought: 
+Reconstructions, causes, and consequences. Earth Science Reviews,  81: 
+93–134, 2007.
+ 16. D.P . Dee, S.M. Uppala, A.J. Simmons et al. The ERA- Interim reanalysis: 
+Configuration and performance of the data assimilation system.  Quart. J. 
+Roy. Meteorol. Soc.,  137: 553–597, 2011.
+ 17. T. DelSole and M.K. Tippett. Average Predictability Time: Part I. Theory. 
+J. Atmos. Sci.,  66: 1188–1204, 2009.
+ 18. T. DelSole, M.K. Tippett, and J. Shukla. A significant component of unforced 
+multidecadal variability in the recent acceleration of global warming. J. Climate, 24: 909–926, 2011.
+ 19. J.F. Donges, Y . Zou, N. Marwan, and J. Kurths. The backbone of the climate 
+network. Eur. Phys. Lett. , 87(4): 48007, 2007.
+ 20. R. Donner, S. Barbosa, J. Kurths, and N. Marwan. Understanding the earth 
+as a complex system—Recent advances in data analysis and modeling in earth sciences. Eur. Phys. J. Special Topics,  174: 1–9, 2009.
+ 21. M.N. Evans, A. Kaplan, and M.A. Cane. Pacific sea surface temperature field 
+reconstruction from coral δ
+18O data using reduced space objective analysis. 
+Paleoceanography,  17: 7, 10.1029/2000PA000590, 2002.
+ 22. M.N. Evans, B.K. Reichert, A. Kaplan, K.J. Anchukaitis, E.A. Vaganov, M.K. 
+Hughes, and M.A. Cane. A forward modeling approach to paleoclimatic interpretation of tree- ring data. J. Geophys. Res.,  111(G3): G03008, 2006.
+ 23. J.A. Foley, M.T. Coe, M. Scheffer, and G. Wang. Regime shifts in the Sahara 
+and Sahel: Interactions between ecological and climatic systems in Northern Africa. Ecosystems , 6: 524–532, 2003.
+ 24. G. Foster, J.D. Annan, G.A. Schmidt, and M.E. Mann. Comment on “Heat 
+capacity, time constant, and sensitivity of Earth’s climate system” by S.E. Schwartz. J. Geophys. Res.,  113, D15102, 2008.
+ 25. J. Friedman, T. Hastie, and R. Tibshirani. A note on the group lasso and a 
+sparse group lasso. Preprint, 2010.
+ 26. L. Getoor and B. Tasker (Eds.). Introduction to Statistical Relational Learning.  
+MIT Press, Cambridge, MA, 2007.
+ 27. C.M. Gifford. Collective Machine Learning: Team Learning and Classification 
+in Multi- Agent Systems. Ph.D. dissertation, University of Kansas, 2009.
+ 28. F. Giorgi and N. Diffenbaugh. Developing regional climate change scenarios 
+for use in assessment of effects on human health and disease. Clim. Res., 36: 
+141–151, 2008.
+ 29. G.H. Golub and C.F. Van Loan. Matrix Computations, third edition. The 
+Johns Hopkins University Press, Washington, D.C., 1996.Climate Informatics    ◾   121  
+ 30. J.F. González- Rouco, H. Beltrami, E. Zorita, and H. Von Storch. Simulation 
+and inversion of borehole temperature profiles in surrogate climates: Spatial distribution and surface coupling. Geophys. Res. Lett.,  33(1): 
+L01703, DOI:10.1029/2005GL024693.2006.
+ 31. W .M. Gray. Atlantic seasonal hurricane frequency. Part I: El- Niño and 30-MB 
+quasi- biennial oscillation influences. Mon. Wea. Rev.,  112: 1649–1688, 1984.
+ 32. A.M. Greene, A.W . Robertson, P . Smyth, and S. Triglia. Downscaling fore-
+casts of Indian monsoon rainfall using a nonhomogeneous hidden Markov model. Quart. J. Royal Meteor. Soc.,  137: 347–359, 2011.
+ 33. J. Hansen, R. Ruedy, M. Sato, and K. Lo. Global surface temperature change. 
+Rev. Geophys ., 48: RG4004, 2010.
+ 34. T. Hastie, R. Tibshirani, and J. Friedman. The Elements of Statistical Learning: 
+Data Mining, Inference, and Prediction . Springer, New Y ork, 2001.
+ 35. G.C. Hegerl, T.J. Crowley, M. Allen et al. Detection of human influence on 
+a new, validated 1500-year temperature reconstruction. J. Climate,  20: 650–
+666, 2007.
+ 36. G.C. Hegerl, F.W . Zwiers, P . Braconnot et al. Understanding and attrib-
+uting climate change. Climate Change 2007: The Physical Science Basis . 
+Contribution of Working Group I to the Fourth Assessment Report of the Intergovernmental Panel on Climate Change, S. Solomon et al. (Eds.), Cambridge University Press, Cambridge (UK) and New Y ork, 2007.
+ 37. M. Hoerling, J. Hurrell, J. Eischeid, and A. Phillips. Detection and attribu-
+tion of twentieth- century Northern and Southern African rainfall change. J. Climate , 19(16): 3989–4008, August 2006.
+ 38. S.M. Hsiang, K.C. Meng, and M.A. Cane. Civil conflicts are associated with 
+the global climate. Nature,  476: 438–441, 2011.
+ 39. IDAG (International ad hoc Detection and Attribution Group). Detecting 
+and attributing external influences on the climate system: A review of recent advances. J. Clim.,  18: 1291–1314, 2005.
+ 40. IPCC (Intergovernmental Panel on Climate Change). Expert Meeting 
+on Assessing and Combining Multi Model Climate Projections: Good Practice Guidance Paper on Assessing and Combining Multi Model Climate Projections, R. Knutti et al., 2010.
+ 41. P .D. Jones, K.R. Briffa, T.J. Osborn et al. High- resolution palaeoclimatology 
+of the last millennium: A review of current status and future prospects. The 
+Holocene,  19: 3–49, 2009.
+ 42. A. Kaplan, M.A. Cane, and Y . Kushnir. Reduced space approach to the optimal 
+analysis interpolation of historical marine observations: Accomplishments, difficulties, and prospects. In Advances in the Applications of Marine 
+Climatology: The Dynamic Part of the WMO Guide to the Applications of Marine Climatology,  p. 199–216, Geneva, Switzerland, 2003. World 
+Meteorological Organization.
+ 43. J. Kawale, S. Liess, A. Kumar et al. Data guided discovery of dynamic dipoles. 
+In Proceedings of the NASA Conference on Intelligent Data Understanding , 2011.122   ◾   Computational Intelligent Data Analysis for Sustainable Development
+ 44. N.S. Keenlyside, M. Latif, J. Jungclaus, L. Kornblueh, and E. Roeckner. 
+Advancing decadal- scale climate prediction in the North Atlantic Sector. Nature,  453: 84–88, 2008.
+ 45. J.J. Kennedy, N.A. Rayner, R.O. Smith, D.E. Parker, and M. Saunby. 
+Reassessing biases and other uncertainties in sea surface temperature obser-vations measured in situ since 1850. 1. Measurement sampling uncertainties. 
+J. Geophys. Res., 116: D14103, 2011.
+ 46. R. Knutti, G.A. Meehl, M.R. Allen, and D.A. Stainforth. Constraining cli-
+mate sensitivity from the seasonal cycle in surface temperature. J. Clim., 19: 
+4224–4233, 2006.
+ 47. D. Koller and N. Friedman. Probabilistic Graphical Models: Principles and 
+Techniques . MIT Press, Cambridge, MA, 2009.
+ 48. Y . Koren, R.M. Bell, and C. Volinsky. Matrix factorization techniques for rec-
+ommender systems. IEEE Computer,  42(8): 30–37, 2009.
+ 49. R.S. Kovats, M.J. Bouma, S. Hajat, E. Worrall, and A. Haines. El Niño and 
+health. The Lancet,  362: 1481–1489, 2003.
+ 50. V .M. Krasnopolsky and M.S. Fox- Rabinovitz. Complex hybrid models com-
+bining deterministic and machine learning components for numerical climate modeling and weather prediction. Neural Networks,  19(2): 122–134, 2006.
+ 51. T.C.K. Lee, F.W . Zwiers, and M. Tsao. Evaluation of proxy- based millennial 
+reconstruction methods. Climate Dyn ., 31: 263–281, 2008.
+ 52. B. Li, D.W . Nychka, and C.M. Ammann. The value of multiproxy recon–
+struction of past climate. J. Am. Stat. Assoc.,  105: 883–895, 2010.
+ 53. C.H.R. Lima, U. Lall, T. Jebara, and A.G. Barnston. Statistical prediction of 
+ENSO from subsurface sea temperature using a nonlinear dimensionality reduction. J. Climate,  22: 4501–4519, 2009.
+ 54. Z. Lu and T.K. Leen. Semi- supervised learning with penalized probabilistic 
+clustering. In Advances of Neural Information Processing System , MIT Press, 
+Cambridge, MA, 2005.
+ 55. M.E. Mann, R.S. Bradley, and M.K. Hughes. Northern hemisphere tempera-
+tures during the past millennium: Inferences, uncertainties, and limitations. Geophys. Res. Lett.,  26: 759–762, 1999.
+ 56. M.E. Mann, S. Rutherford, E. Wahl, and C. Ammann. Testing the fidelity of 
+methods used in proxy- based reconstructions of past climate. J. Climate,  18: 
+4097–4107, 2005.
+ 57. M.E. Mann, S. Rutherford, E. Wahl, and C. Ammann. Robustness of proxy- 
+based climate field reconstruction methods. J. Geophys. Res.,  112(D12109), 2007.
+ 58. M.E. Mann, Z. Zhang, M.K. Hughes et al. Proxy- based reconstructions of 
+hemispheric and global surface temperature variations over the past two millennia. Proc. Nat. Acad. Sci. USA, 105: 13252–13257, 2008.
+ 59. M.E. Mann, Z. Zhang, S. Rutherford et al. Global signatures and dynamical 
+origins of the Little Ice Age and Medieval Climate Anomaly. Science, 326: 
+1256–1260, 2009.
+ 60. L.O. Mearns, W .J. Gutowski, R. Jones et al. A regional climate change assess-
+ment program for North America. EOS,  90: 311–312, 2009.Climate Informatics    ◾   123  
+ 61. G.A. Meehl, T.F. Stocker, W .D. Collins et al. Global climate projections. 
+Climate Change 2007: The Physical Science Basis . Contribution of Working 
+Group I to the Fourth Assessment Report of the Intergovernmental Panel on Climate Change, S. Solomon et al. (Eds), Cambridge University Press, Cambridge (UK) and New Y ork, 2007.
+ 62. M.J. Menne, C.N. Williams Jr., and M.A. Palecki. On the reliability of the 
+U.S. surface temperature record. J. Geophys. Res.,  115: D11108, 2010.
+ 63. C. Monteleoni, G.A. Schmidt, S. Saroha, and E. Asplund. Tracking climate 
+models. Statistical Analysis and Data Mining,  4: 372–392, 2011.
+ 64. J.M. Murphy, B.B. Booth, M. Collins et al. A methodology for probabilistic 
+predictions of regional climate change from perturbed physics ensembles. Phil. Trans. Roy. Soc. A,  365: 2053–2075, 2007.
+ 65. G.T. Narisma, J.A. Foley, R. Licker, and N. Ramankutty. Abrupt changes in rain-
+fall during the twentieth century. Geophys. Res. Lett. , 34: L06710, March 2007.
+ 66. S. Negahban, P . Ravikumar, M.J. Wainwright, and B. Yu. A unified frame-
+work for high- dimensional analysis of m- estimators with decomposable regularizers. Arxiv, 2010. 
+http://arxiv.org/ abs/1010.2731v1 .
+ 67. H. Owhadi, J.C. Scovel, T. Sullivan, M. McKems, and M. Ortiz. Optimal 
+uncertainty quantification, SIAM Review , 2011 (submitted).
+ 68. R.D. Peng, J.F. Bobb, C. Tebaldi, L. McDaniel, M.L. Bell, and F. Dominici. 
+Toward a quantitative estimate of future heat wave mortality under global climate change. Environ. Health Perspect.,  119: 701–706, 2010.
+ 69. W .B. Powell and P . Frazier. Optimal learning. In Tutorials in Operations 
+Research: State- of- the- Art Decision Making Tools in th e Informati on Age. 
+Hanover, MD, 2008.
+ 70. P . Ravikumar, A. Agarwal, and M.J. Wainwright. Message- passing for graph- 
+structured linear programs: Proximal projections, convergence and round-ing schemes. J. Machine Learning Res. , 11: 1043–1080, 2010.
+ 71. D.B. Reusch. Ice- core reconstructions of West Antarctic Sea- Ice variability: A 
+neural network perspective. Fall Meeting of the American Geophysical Union , 
+2010.
+ 72. C.F Ropelewski and M.S. Halpert. Global and regional scale prec ipitation 
+patterns associated with the El Niño/ Southern Oscillation. Mon. Wea. Rev.,  
+115: 1606–1626, 1987.
+ 73. R. Salakhutdinov and A. Mnih. Pr obabilistic matrix factorization. In 
+Advances in Neural Information Processing Systems 20 , 2008.
+ 74. M. Scheffer, S. Carpenter, J.A. Foley, C. Folke, and B. Walker. Catastrophic 
+shifts in ecosystems. Nature , 413(6856): 591–596, October 2001.
+ 75. G.A. Schmidt. Error analysis of paleosalinity calculations. Paleoceanography,  
+14: 422–429, 1999.
+ 76. G.A. Schmidt, A. LeGrande, and G. Hoffmann. Water isotope expressions 
+of intrinsic and forced variability in a coupled ocean- atmosphere model. J. Geophys. Res.,  112, D10103, 2007.
+ 77. T. Schneider. Analysis of incomplete climate data: Estimation of mean values 
+and covariance matrices and imputation of missing values. J. Climate,  14: 
+853–871, 2001.124   ◾   Computational Intelligent Data Analysis for Sustainable Development
+ 78. S.D. Schubert, M.J. Suarez, P .J. Pegion, R.D. Koster, and J.T. Bacmeister. On 
+the cause of the 1930s dust bowl. Science , 303: 1855–1859, 2004.
+ 79. C. Scovel and I. Steinwart. Hypothesis testing for validation and certification. 
+J. Complexity , 2010 (submitted).
+ 80. G. Shafer and V . Vovk. A tutorial on conformal prediction. J. Mach. Learn. 
+Res., 9: 371–421, 2008.
+ 81. J. Shukla. Dynamical predictability of monthly means. Mon. Wea. Rev.,  38: 
+2547–2572, 1981.
+ 82. J. Shukla. Predictability in the midst of chaos: A scientific basis for climate 
+forecasting. Science,  282: 728–731, 1998.
+ 83. F.H. Sinz. A Priori Knowledge from Non- Examples . Diplomarbeit (thesis), 
+Universität Tübingen, Germany, 2007.
+ 84. F.H. Sinz, O. Chapelle, A. Agrawal, and B. Schölkopf. An analysis of inference 
+with the universum. In Advances in Neural Informa tion Proces sing Systems,  
+20, 2008.
+ 85. J.E. Smerdon. Climate models as a test bed for climate reconstruction meth-
+ods: Pseudoproxy experiments. Wiley Interdisciplinary Reviews Climate Change, in revision, 2011.
+ 86. J.E. Smerdon and A. Kaplan. Comment on “Testing the Fidelity of Methods 
+Used in Proxy- Based Reconstructions of Past Climate”: The Role of the Standardization Interval. J. Climate,  20(22): 5666–5670, 2007.
+ 87. J.E. Smerdon, A. Kaplan, and D.E. Amrhein. Erroneous model field repre-
+sentations in multiple pseudoproxy studies: Corrections and implications. J. Climate,  23: 5548–5554, 2010.
+ 88. J.E. Smerdon, A. Kaplan, D. Chang, and M.N. Evans. A pseudoproxy evalua-
+tion of the CCA and RegEM methods for reconstructing climate fields of the last millennium. J. Climate,  24: 1284–1309, 2011.
+ 89. J.E. Smerdon, A. Kaplan, E. Zorita, J.F. González- Rouco, and M.N. Evans. 
+Spatial performance of four climate field reconstruction methods targeting the Common Era. Geophys. Res. Lett.,  38, 2011.
+ 90. D.M. Smith, S. Cusack, A.W . Colman et al. Improved surface temperature 
+prediction for the coming decade from a global climate model. Science, 317: 
+769–799, 2007.
+ 91. L.-K. Soh and C. Tsatsoulis. Unsupervised segmentation of ERS and Radarsat 
+sea ice images using multiresolution peak detection and aggregated popula-tion equalization. Int. J. Remote S., 20: 3087–3109, 1999.
+ 92. L.-K. Soh, C. Tsatsoulis, D. Gineris, and C. Bertoia. ARKTOS: An intelligent 
+system for SAR sea ice image classification. IEEE T. Geosci. Remote S. , 42: 
+229–248, 2004.
+ 93. A. Solomon, L. Goddard, A. Kumar, J. Carton, C. Deser, I. Fukumori, 
+A. Greene, G. Hegerl, B. Kirtman, Y . Kushnir, M. Newman, D. Smith, D. Vimont, T. Delworth, J. Meehl, and T. Stockdale. Distinguishing the roles of natural and anthropogenically forced decadal climate variability: Implications for prediction. Bull. Amer. Meteor. Soc., 92: 141–156, 2010.
+ 94. S. Sra, S. Nowozin, and S. Wright. Optimization for Machine Learning . MIT 
+Press, 2011.Climate Informatics    ◾   125  
+ 95. K. Steinhaeuser, A.R. Ganguly, and N.V . Chawla. Multivariate and multiscale 
+dependence in the global climate system revealed through complex net-works. Climate Dynamics , doi:10.1007/s00382-011-1135-9, in press, 2011.
+ 96. K.E. Taylor, R. Stouffer, and G. Meehl. The CMIP5 experimental design.  Bull 
+Amer. Meteorol. Soc. , 2011 (submitted).
+ 97. C. Tebaldi and R. Knutti. The use of the multi- model ensemble in probabilis-
+tic climate projections. Phil. Trans. Roy. Soc. A,  365: 2053–2075, 2007.
+ 98. M. Tedesco and E.J. Kim. A study on the retrieval of dry snow parameters 
+from radiometric data using a dense medium model and genetic algorithms. IEEE T. Geosci. Remote S.,  44: 2143–2151, 2006.
+ 99. M. Tedesco, J. Pulliainen, P . Pampaloni, and M. Hallikainen. Artificial neural 
+network based techniques for the retrieval of SWE and snow depth from SSM/ I data. Remote Sens. Environ., 90: 76–85, 2004.
+ 100. D.M. Thompson, T.R. Ault, M.N. Evans, J.E. Cole, and J. Emile- Geay. 
+Comparison of observed and simulated tropical climate trends using a for-ward model of coral δ
+18O. Geophys. Res. Lett.,  in review, 2011.
+ 101. R. Tibshirani. Regression shrinkage and selection via the lasso. Journal of 
+Royal Statistical Society B , 58: 267–288, 1996.
+ 102. M.P . Tingley, P .F. Craigmile, M. Haran, B. Li, E. Mannshardt- Shamseldin, 
+and B. Rajaratnam. Piecing Together the Past: Statistical Insights into Paleoclimatic Reconstructions. Technical report 2010-09, Department of Statistics, Stanford University, 2010.
+ 103. M.P . Tingley and P . Huybers. A Bayesian algorithm for reconstructing cli-
+mate anomalies in space and time. Part I: Development and applications to paleoclimate reconstruction problems. J. Climate,  23(10): 2759–2781, 2010.
+ 104. M.K. Tippett, S.J. Camargo, and A.H. Sobel. A Poisson regression index 
+for tropical cyclone genesis and the role of large- scale vorticity in genesis. J. Climate,  24: 2335–2357, 2011.
+ 105. K.E. Trenberth, P .D. Jones, P . Ambenje et al. Observations: Surface and 
+atmospheric climate change. Climate Change 2007: The Physical Science 
+Basis . Contribution of Working Group I to the Fourth Assessment Report 
+of the Intergovernmental Panel on Climate Change, S. Solomon et al. (Eds.), Cambridge (UK) and New Y ork: Cambridge University Press, 2007.
+ 106. A.A. Tsonis, K.L. Swanson, and P .J. Roebber. What do networks have to do with 
+climate? Bulletin of the American Meteorological Society , 87(5): 585–595, 2006.
+ 107. A.A. Tsonis and P .J. Roebber. The architecture of the climate network. 
+Physica A , 333: 497–504, 2004.
+ 108. A.A. Tsonis and K.L. Swanson. Topology and predictability of El Niño and 
+La Niña networks. Physical Review Letters , 100(22): 228502, 2008.
+ 109. K.Y . Vinnikov, N.C. Grody, A. Robok et al. Temperature trends at the surface 
+and in the troposphere. J. Geophys. Res.,  111: D03106, 2006.
+ 110. F.D. Vitart and T.N. Stockdale. Seasonal forecasting of tropical storms using 
+coupled GCM integrations. Mon. Wea. Rev.,  129: 2521–2537, 2001.
+ 111. M.J. Wainwright and M.I. Jordan. Graphical models, exponential families, 
+and variational inference. Foundations and Trends in Machine Learning , 
+1(1–2): 1–305, 2008.126   ◾   Computational Intelligent Data Analysis for Sustainable Development
+ 112. M. Widmann, H. Goosse, G. van der Schrier, R. Schnur, and J. Barkmeijer. 
+Using data assimilation to study extratropical northern hemisphere climate over the last millennium. Clim. Past,  6: 627–644, 2010.
+ 113. C.A. Woodhouse and J.T. Overpeck. 2000 years of drought variability in the 
+central United States. Bull. Am. Meteorologic. Soc. , 79: 2693–2714, 1998.
+ 114. S.D. Woodruff, S.J. Worley, S.J. Lubker et al. ICOADS Release 2.5: Extensions 
+and enhancements to the surface marine meteorological archive. J. Geophys. 
+Res., 31: 951–967, 2011.
+ 115. Qiaoyan Wu and Dake Chen.  Ensemble forecast of Indo- Pacific SST based 
+on IPCC twentieth- century climate simulations. Geophys. Res. Lett.,  37: 2010."

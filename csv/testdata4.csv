@@ -1,0 +1,390 @@
+,text
+0,"LETTERS
+PUBLISHED ONLINE: 9 MARCH 2014 | DOI: 10.1038/NCLIMATE2136
+Inhomogeneous forcing and transient
+climate sensitivity
+Drew T. Shindell
+Understanding climate sensitivity is critical to projecting
+climate change in response to a given forcing scenario.
+Recent analyses1–3have suggested that transient climate
+sensitivity is at the low end of the present model rangetaking into account the reduced warming rates during the past10–15 years during which forcing has increased markedly
+4.I n
+contrast, comparisons of modelled feedback processes with
+observations indicate that the most realistic models havehigher sensitivities
+5,6. Here I analyse results from recent
+climate modelling intercomparison projects to demonstrate
+that transient climate sensitivity to historical aerosols and
+ozone is substantially greater than the transient climatesensitivity to CO
+2. This enhanced sensitivity is primarily caused
+by more of the forcing being located at Northern Hemispheremiddle to high latitudes where it triggers more rapid land
+responses and stronger feedbacks. I ﬁnd that accounting for
+this enhancement largely reconciles the two sets of results, andI conclude that the lowest end of the range of transient climateresponse to CO
+2in present models and assessments7(<1.3◦C)
+is very unlikely.
+Modelled transient climate responses were in good agreement
+withtheunderstandingofhistoricalforcingandobservedwarmingtrends in most analyses to ~2006 (ref. 8). Recent measurementsposed a problem, however: warming rates were slower during the
+past10–15yearswhilepositiveforcingcontinuedtoincreaserapidly
+andnewobservationsledtoreduce destimatesofoﬀsettingnegative
+aerosol forcing
+4,9. Although there are uncertainties in the recent
+forcingtrendsandatleastpartofthereducedwarmingratecouldbe
+duetointernalvariability,analysesinboththescientificliterature1,2
+and the popular press3accounting for those factors concluded
+that climate sensitivity is likely towards the low end of presentmodels’range.
+Inferring climate sensitivity from recent observations requires
+a thorough understanding of both recent forcing and the global
+mean response to various forcing agents. Although the forcing hasbeenstudiedindetail,theglobalmeanresponsehasconventionallybeen assumed to be the same for all forcing agents (in all such
+analyses, not only the most recent). I examine the response to
+historicalanthropogenicinhomogeneousforcinginthemostrecentsetofstateoftheartclimatemodelsimulations:theCoupledModelIntercomparison Project Phase 5 (CMIP5; ref. 10). Simulationsto examine the influence of aerosols and ozone on climate were
+part of CMIP5 (ref. 10), but were relegated to a low priority
+and few results are available. Hence to examine the response toaerosols and ozone, I analyse CMIP5 historical simulations of theresponse to all forcings (histAll), to well-mixed greenhouse gas
+(WMGHG) forcing (histGHG) and to natural forcing (histNat),
+using the residual of histAll −(histGHG +histNat )following two
+methods.Method1assumesthatstratosphericwatervapourforcinginducesaresponsesimilartoWMGHGs,sothattheresidual(with
+scaled histGHG) represents the response to aerosol +ozone +
+land-use (LU; representing anthropogenic changes in vegetationcover and land usage). Method 2 assumes that the response topositive stratospheric water vapour forcing oﬀsets the response to
+negativeLUforcing,leavingaresidualrepresentingonlyaerosols +
+ozone(Methods).
+Iincludetheeightmodelsforwhichforcingduetoaerosolsand
+ozone has been documented
+11and all of these transient historical
+climate simulations are available. I evaluate the transient climateresponse (TCR), defined as the global mean temperature change
+in response to gradually increasing (1% yr
+−1)CO 2at the time
+of its doubling in a given model12(all values annual averages).
+For consistency, the response to other forcings, which I refer tomore generally as transient climate sensitivity, is given using thesame scale (that is, the response per unit forcing times a model’s
+doubled CO
+2forcing). Uncertainty in the TCR for a particular
+model stems from both the responses and the forcings, with thepoorly documented LU forcing contributing the largest fraction inthesecalculations.
+All of the available CMIP5 models show greater TCR for
+historicalinhomogeneousforcingthanforWMGHGforcing(Fig.1andSupplementaryTable1).TheTCRforWMGHGis 2.0±0.3
+◦C
+(mean and s.d. across model ensembles), whereas it is 2.9±1.0◦C
+foraerosol +ozone +LU(Method1)and 3.0±1.1◦Cforaerosol +
+ozone (Method 2). Thus, the results are robust to the methodology
+fortreatingtheseminorforcingagents(LUandstratosphericwatervapour), and seem to be dominated by the response to aerosoland ozone forcing. The TCR for aerosol +ozone is 45±38%
+(meanofMethods1and2;SupplementaryTable1)greaterthanthe
+TCR calculated from historical WMGHG simulations (histGHG).In comparison with independent TCR estimates from these samemodelsfromtheresponseto1%peryearCO
+2increases13,whichare
+2.0±0.3◦C,theaerosol +ozoneTCRis 53±46%greater.
+Analysis of the large-scale forcing and temperature response
+patterns provides both further confidence that the enhanced TCRis due to aerosol +ozone forcing and insight into the large
+spread in model results. The models have greater net negative
+inhomogeneous forcing in the Northern Hemisphere (NH) than
+in the Southern Hemisphere (SH) by −0.97±0.57Wm
+−2,a n d
+in the NH extratropics (NHext; 28◦–90◦)t h a ni nt h eS H e x tb y
+−1.07±0.66Wm−2(Supplementary Table 3). The extratropical
+asymmetryresultsfromaverystro ngasymmetryinaerosolforcing
+(−1.32±0.57Wm−2)t h a ti sp a r t i a l l yo ﬀ s e tb ym o r ep o s i t i v e
+ozone forcing in the NHext than the SHext ( 0.40±0.11Wm−2;
+SupplementaryTable2).
+IthasbeenshownpreviouslythatforcingintheNHextratropics
+causes a greater global mean temperature response than forcing in
+the tropics14–18. In particular, NHext forcing caused ∼50% greater
+NASA Goddard Institute for Space Studies, New York, New York 10025, USA. e-mail: drew.t.shindell@nasa.gov
+NATURE CLIMATE CHANGE | ADVANCE ONLINE PUBLICATION | www.nature.com/natureclimatechange 1
+© 201/g23 Macmillan Publishers Limited.  All rights reserved.  LETTERS NATURE CLIMATE CHANGE DOI: 10.1038/NCLIMATE2136TCR for WMGHG ( °C)
+TCR for aerosol + ozone + LU ( °C)TCR from 1% per year CO2 (°C)
+TCR for aerosol + ozone + LU (°C)012345012345
+012345
+012345
+Figure 1 | Comparison of transient climate response for well-mixed
+greenhouse gas forcing and for aerosol +ozone +land-use forcing.
+Response to well-mixed greenhouse gas (WMGHG) is based on the
+histGHG simulations (top) or 1% per year CO 2simulations (bottom),
+whereas the response to aerosol +ozone +land-use (LU) is based on
+histAll−(histGHG +histNat) (using Method 1). The solid line shows 1:1
+correspondence, whereas the dashed line shows 50% greater transient
+climate response (TCR) for aerosol +ozone +LU. Uncertainties are 95%
+conﬁdence intervals incorporating uncertainties in forcing and modelledtemperature change. Uncertainties in TCR for WMGHG are comparable tothe symbol size ( ∼12%). Some overlapping points have been very slightly
+displaced for clarity.
+equilibrium response than equivalent global mean tropical forcing
+in the GISS-E climate model for aerosols (or even for idealized
+CO 2perturbations), and forcing in the NH caused ∼18% greater
+response than forcing in the SH (ref. 16). In the ECHAM4 model,tropospheric ozone forcing in the NHext caused a 20–61% greaterglobalmeansurfacetemperatureresponsethanequivalentglobally
+homogeneousforcing
+18.Thus,itseemsentirelylogicalthat,because
+aerosol +ozone forcing is preferentially in the NHext, this forcing
+willcauseagreaterglobalmeantransientresponse.0123456Regional warming ratio
+WMGHG Aerosol + O3NH/SH
+NHext
+SHext
+Aerosol+O3
+WMGHG
+Figure 2 | Ratios of regional temperature responses to well-mixed
+greenhouse gas and inhomogeneous forcings in CMIP5 simulations.Aerosol +ozone (O
+3) results are based directly on histAll −(histGHG +
+histNat; that is, Method 2). Diamonds and squares are mean values,
+horizontal lines are medians, and the ranges across the models are shown
+as vertical lines.
+Thattheaerosol +ozoneforcingdrivesgreatertrendsintheNH
+than in the SH is clear in analysis of the temperature response inthese CMIP5 models (Fig. 2). All of the models have an enhancedtransient response in the NH relative to the SH for increasing
+WMGHG, and the mean model response in the NHext is more
+than double the SHext response to WMGHG. This is attributableto the greater land area in the NH and NHext, which respondsmore rapidly to forcing, and the greater area with strong snow andice albedo feedbacks
+16,18,19.I nr e s p o n s et oa e r o s o l +ozone forcing,
+the ratio of NH/SH temperature response is ∼30% greater than
+the ratio for WMGHG forcing, however. The ratio of NHext toSHext temperature responses to aerosol +ozone forcing is ∼65%
+greater. In the few models that performed ensembles of historical
+response to aerosols alone (GFDL, GISS, CanESM and CSIRO; see
+SupplementaryInformation),thesimulationsshowcomparablebuteven larger enhancements of 44% and 94%, respectively. Althoughthere is a substantial range in these ratios across models, part ofthe North-versus-South diﬀerence is systematic across the forcing
+agents,andhencecomparingtheregionalresponseratiosshowsthat
+theseratiosarelargerforaerosol +ozoneforcingthanforWMGHG
+forcing for all models (Fig. 2). Thus, the asymmetric distributionof forcing plays a significant role in causing diﬀerent temperature
+responses in the two hemispheres and two extratropical zones,
+with an impact roughly one-third to two-thirds the magnitudeof the eﬀect of the uneven distribution of underlying transientclimatesensitivity.
+TheresponsetoWMGHGindicatesthatthetransientsensitivity
+o ft h eN Hi s ∼60% greater than that of the SH (Fig. 2). Hence, if
+all of the aerosol +ozone forcing was in the NH, and the response
+was relatively localized in latitude
+20,o n ew o u l de x p e c tr o u g h l y
+30% greater global mean temperature response than for uniform
+forcing. In these CMIP5 models, 77% of the net aerosol +ozone
+forcing is in the NH, and 82% of the extratropical forcing is in theNHext,implyingthatindeedthespatialasymmetrycanaccountforasubstantialportionoftheenhancementfoundhere.
+In addition, while WMGHG forcing has increased through the
+present,aerosol +ozoneforcinglevelledoﬀduringrecentdecades,
+allowing more time for the climate system to respond to the
+2 NATURE CLIMATE CHANGE | ADVANCE ONLINE PUBLICATION | www.nature.com/natureclimatechange
+© 201/g23 Macmillan Publishers Limited.  All rights reserved.  NATURE CLIMATE CHANGE DOI: 10.1038/NCLIMATE2136 LETTERS
+full historical aerosol +ozone forcing. I performed calculations
+using a global impulse–response function21(see Supplementary
+Information) driven by the temporally evolving aerosol +ozone
+forcing4and by forcing with the same maximum magnitude
+but following the temporal evolution of WMGHG forcing. Thediﬀerence shows that the earlier peak in forcing enhances the
+sensitivity to historical aerosols +ozone by ∼10% relative to
+WMGHG(probablyalowerlimitastheresponsetimesforNHlandwould be faster than the global mean response times). Additionalfactors, such as the distinct vertical distributions of aerosols ando z o n e ,m a ya l s oc o n t r i b u t et oas t r o n g e rr e s p o n s ep e ru n i tf o r c i n grelativetoWMGHG.
+These results support the conclusion that the greater response
+to inhomogeneous forcing is primarily driven by the fact that thisforcingispredominantlylocatedintheNHextwhereitactivatesthe
+sameprocessesthatcausetheresponsetoWMGHGtobeespecially
+largeinthisregion.WhereasWMGHGforcingisquasi-uniformina l lm o d e l s ,ap o r t i o no ft h es p r e a di nt h eT C Rt oi n h o m o g e n e o u sforcing comes from the varied forcing distributions themselves
+rather than spatial variations in the response to inhomogeneous
+forcing, which seems to be fairly robust at large scales inclimatemodels
+20.
+Measurementsshowglobalmeanwarmingof 0.68±0.20◦Cfor
+∼2000 (1990–2009) in comparison with an 1860–1879 reference
+period using the HadCRUT4 temperature data set22and including
+anadjustmentforsamplingbias23(seeSupplementaryInformation).
+Previous evaluations of TCR using these temperature trendsassumed equal global mean response to forcing from any agent
+1,2.
+TCR consistent with observed temperature changes (dTobserved )
+includingtheenhancedresponsetoaerosolandozoneforcingseenintheCMIP5modelsanalysedherecanbecalculatedusing:
+TCR=F
+2xCO 2×(dTobserved /(FWMGHG +E∗(Faerosols+FOzone+FLU)))
+where Eis the enhanced response given as the ratio of the
+responses to inhomogeneous and WMGHG forcings, Fstands
+for forcing ( FWMGHGis2.47±0.24Wm−2and includes small
+forcings due to stratospheric water, solar and contrails; Faerosols+
+FOzone+FLUis−0.64 (+0.3/−0.5)Wm−2,basedontheAtmospheric
+ChemistryandClimateModelIntercomparisonProject(ACCMIP)analysis
+11, with aerosols reduced from the ACCMIP mean of
+−1.2Wm−2by0.3Wm−2tomatchtheIPCCAR5bestestimateof
+−0.9Wm−2basedonmodelsandstudiesconstrainedwithsatellite
+observations9, and as in a previous study2, and thus assigned a
+smaller positive uncertainty), and 3.7Wm−2is the best estimate
+of doubled CO 2forcing7. When assuming uniform sensitivity to
+a l lf o r c i n ga g e n t s( E= 1.00) ,If i n dn e a r l yt h es a m eT C Ra s
+in the earlier study2(1.4◦C; 1.0–2.1◦C 95% confidence interval)
+when using these forcing estimates. TCR is 1.7◦C (1.3–3.2◦C),
+however, when including the enhanced sensitivity to aerosol and
+o z o n ef o r c i n gr e l a t i v et o1 %y r−1CO 2(E=1.53; range 1.18–2.43)
+or1.6◦C (1.3–3.1◦C) using the enhancement relative to histGHG
+(E=1.45; range 1.12–2.09; see also Supplementary Information).
+These ranges are largely consistent with those found in CMIP5models (1.2–2.4
+◦C, 95% confidence; 1.1–2.6◦C full range) or
+assessed as likely in the IPCC AR5 (1.0–2.5◦C)7,b u tw h e r e a st h e
+uniform sensitivity TCR range indicates very low probabilities atthe higher end of these ranges, the TCR range when accountingfor the enhanced sensitivity to aerosol +ozone indicates very low
+probabilityonlyatthelowestend.
+AstheseresultsdonotsuggestanychangetoestimatesoftheTCR
+to WMGHG, and WMGHG dominate long-term forcing (at leastas projected under the Representative Concentration Pathways
+24
+(RCPs)), they have minimal eﬀect on projections of long-termclimate change. Using a simple impulse–response function
+21to
+estimate historical and future climate change, global mean values
+Global mean temperature change (°C)
+1850 1875 1900 1925 1950
+Year1975 2000 2025 205000.51.02.0
+1.52.5
+Figure 3 | Global mean temperature change estimates based on
+anthropogenic forcings obtained from a multi-model analysis11.The
+dashed line shows estimates assuming uniform sensitivity to all forcings,
+whereas the solid line shows results including the enhanced sensitivity to
+the inhomogeneous aerosol and ozone forcings ( E=1.4, accounting for the
+spatial distribution alone, as the contribution from the distinct temporalevolution is already included). Values are calculated with animpulse–response function
+21, with RCP8.5 used for the future projections,
+and include the reduced aerosol forcing used elsewhere in this study.
+diﬀer by less than 0.1◦Ca f t e r ∼2050 whether the enhanced
+sensitivity to aerosol +ozone is accounted for or not (Fig. 3).
+However,thereis ∼0.2◦Clesspresentwarmingaccountingforthe
+regional distribution of aerosol +ozone forcing, and more rapid
+warming during the coming decades when aerosols are projectedtorapidlydecreaseintheRCPs.
+These results have several additional implications. Forcing in
+CMIP5 models has been estimated assuming that all forcing
+agents have a similar forcing/response relationship as the onefor WMGHG (ref. 13). Such an analysis would systematicallyoverestimate net aerosol +ozone forcing (the dependence of this
+method on constant regional warming and feedback patterns has
+been noted
+25). Similarly, global mean temperature responses to
+projected aerosol and ozone forcing would be underestimated ifthe forcing distribution is not accounted for. Such biases aﬀectsimple box model calculations
+26, and lead to underestimates of
+aerosol impacts in calculations using simple models27relative to
+analogous calculations using full three-dimensional composition–climatemodels
+28(seealsoSupplementaryInformation).
+As there is a high correlation between TCR and equilibrium
+climate sensitivity, the results suggest the lowest end of model
+equilibriumclimatesensitivityesti matesisalsounlikely(consistent
+with palaeoclimate evidence29). Further work is clearly needed to
+better understand the large range in the apparent TCR in responseto inhomogeneous forcing in present models (Fig. 1) and the large
+spreadinthemagnitudeanddistributionoftheunderlyingaerosol
+forcing. However, given that analysis of observed temperaturechangesincludingtheenhancedre sponsetoinhomogeneousforcing
+identified here and comparison o f climate feedback processes in
+modelsagainstobservationalconstraints
+5,6bothsuggestthatclimate
+sensitivityismostlikelytowardsthehigherendofitsnominalrange,
+achievingclimateprotectiongoalswillmostlikelyrequireemissionsreductionstowardsthehighendofpresentestimates.
+Methods
+I examine all models for which both historical climate simulations and forcing
+diagnostics are available (see also Sup plementary Information). I exclude
+NCAR-CAM3.5 and bcc-csm1-1 as they omit aerosol indirect eﬀects. I alsoexclude GISS-E2-R as this model overestimates negative SH nitrate aerosol and
+ozone forcing
+11,30, so that its NH and SH forcings are quite similar, making its
+historical runs unsuited to studying the impact of hemispherically asymmetric
+NATURE CLIMATE CHANGE | ADVANCE ONLINE PUBLICATION | www.nature.com/natureclimatechange 3
+© 201/g23 Macmillan Publishers Limited.  All rights reserved.  LETTERS NATURE CLIMATE CHANGE DOI: 10.1038/NCLIMATE2136
+forcing (other models have substantially greater hemispheric forcing gradients).
+Although they may be biased, historical aerosol-only simulations with that modelare included because there are only four available models and these results are
+used only in a single comparison complementing the primary analysis. This
+results in eight available models in the primary analysis (Supplementary Table 1).
+The residual of histAll −(histGHG +histNat )includes not only the response
+to aerosols and ozone, but also to LU and stratospheric water, as well as any
+nonlinearities. The forcings are ch aracterized as follows. Doubled CO
+2forcing
+estimated using the fixed-sea surface temperature (SST) method in individual
+models is used when available12, with estimates derived by linear regression used
+in the few cases when fixed-SST simulations were not performed13. HistGHG
+forcing has been diagnosed from the CMIP5 simulations using linear regression13.
+I use these for all models except for CSIRO-Mk3-6-0, MRI-CGCM3 andHadGEM2, for which the regression-based analysis yielded values quite diﬀerent
+from values using fixed-SSTs (which is used for aerosol forcing) in an earlier
+analysis
+12. For those models, fixed-SST results are used if available, and otherwise
+regression-method estimates are adjus ted on the basis of the diﬀerences between
+the two methods (Supplementary Information). Ozone forcing is from ACCMIPanalyses
+11, with the value for a few models that use prescribed ozone changes set
+to0.27±0.14Wm−2, based on forcing calculations for those data sets
+(Supplementary Information), and using the multi-model mean spatial pattern.For LU, I take the central estimate of forcing as −0.085Wm
+−2with a range of
+the same magnitude so that −0.17Wm−2is the high-end forcing and the
+low-end forcing is zero (see Supplementary Information). The exception to this is
+the NorESM1-M model, which does not have LU forcing and hence a value of
+zero is used. For stratospheric water, I use a value of 0.07±0.05Wm−2following
+the most recent assessment4. I then analyse the response to inhomogeneous
+forcing, histAll −(histGHG +histNat ), in two ways: (Method 1) assuming the
+response to stratospheric water vapour is the same as that for WMGHG becauseit is similarly distributed globally (that is, the histGHG response is multiplied by
+(F
+WMGHG +0.07 )/FWMGHG,w h e r e Fis forcing), and hence the residual represents
+aerosol +ozone +LU, and (Method 2) assuming the LU and stratospheric water
+forcings oﬀset one another, and hence the unmodified residual represents aerosol
++ozone (see also Supplementary Information).
+For this analysis, I compare simulated temperatures for 2000 (average over
+1996–2005) with those during 1850–1859 (although for GFDL-CM3 I use
+1860–1869 for the first period, the earliest available; and for HadGEM2 I usedDecember 1859–November 1869 and December 1995–November 2005), with
+model drift removed by subtracting changes over the same time periods in
+control runs. Temperature averages are taken over up to five available ensemble
+members. Values are very similar to those I obtain with these decadal diﬀerences
+when instead using linear regression over the full length of the simulations
+13.
+TCR for the models is simply given by the simulated temperature change
+divided by the imposed forcing, all multiplied by the doubled CO 2forcing
+(Supplementary Information). To calculate TCR from observations, using theequation given in the text, forcing from solar and contrails is taken as 0.1Wm
+−2
+in total4. Uncertainties in TCR are computed with a Monte Carlo approach
+incorporating uncertainties in historical temperature change, forcing and
+response enhancement for inhomogeneous forcing (the value of E), all of which
+are assumed to be independent. Given tha t the TCR incorporating the enhanced
+response to inhomogeneous aerosol forcing is quite sensitive to the magnitude of
+that forcing, the results are in turn quite sensitive to the assumed reduction of the
+modelled aerosol forcing values. For example, if I do not include the 0.3Wm−2
+bias-adjustment to the aerosol forcing, the mean TCR increases by 0.7◦C. As I
+used the smaller aerosol forcing value including this adjustment in the TCR
+calculation from observed surface temperature changes, I reduced the range ofthe positive uncertainty on the aerosol forcing, but further work is needed to
+better constrain aerosol forcing.
+Received 2 October 2013; accepted 16 January 2014;
+published online 9 March 2014
+References
+1. Ring,M.J.,Lindner,D.,Cross,E.F.&Schlesinger,M.E.Causesoftheglobal
+warmingobservedsincethe19thcentury. Atmos. Clim. Sci. 2,401–415(2012).
+2. Otto,A. et al.Energybudgetconstraintsonclimateresponse. Nature Geosci. 6,
+415–416(2013).
+3. TheEconomist, Climate Science: A Sensitive Matter (TheEconomist
+Group,2012).
+4. Myhre,G. et al.inClimate Change 2013: The Physical Science Basis
+(edsStocker,T.F. et al.)Ch.8(IPCC,CambridgeUniv.Press,2013).
+5. Fasullo,J.&Trenberth,K.ALesscloudyfuture:Theroleofsubtropical
+subsidenceinclimatesensitivity. Science 338,792–794(2012).6. Sherwood,S.C.,Bony,S.&Dufresne,J-L.Spreadinmodelclimatesensitivity
+tracedtoatmosphericconvectivemixing. Nature 505,37–42(2014).
+7. Collins,M. et al.inClimate Change 2013: The Physical Science Basis
+(edsStocker,T.F. et al.)Ch.12(IPCC,CambridgeUniv.Press,2013).
+8. H egerl,G.C. et al.inClimate Change 2007: The Physical Science Basis
+(edsSolomon,S. et al.)Ch.9(IPCC,CambridgeUniv.Press,2007).
+9. Boucher,O. et al.inClimate Change 2013: The Physical Science Basis
+(edsStocker,T.F. et al.)Ch.7(IPCC,CambridgeUniv.Press,2013).
+10. Taylor,K.E.,Stouﬀer,R.J.&Meehl,G.A.AnoverviewofCMIP5
+andtheexperimentdesign. Bull. Am. Meteorol. Soc. 93,485–498(2012).
+11. Shindell,D.T. et al.RadiativeforcingintheACCMIPhistoricalandfuture
+climatesimulations. Atmos. Chem. Phys. 13,2939–2974(2013).
+12. Andrews,T.,Gregory,J.,Webb,M.&Taylor,K.Forcing,feedbacksandclimate
+sensitivityinCMIP5coupledatmosphere-oceanclimatemodels. Geophys. Res.
+Lett. 39,L09712(2012).
+13. Forster,P.M. et al.Evaluatingadjustedforcingandmodelspreadforhistorical
+andfuturescenariosintheCMIP5generationofclimatemodels. J. Geophys.
+Res.118,1139–1150(2013).
+14. Hansen,J.,Sato,M.&Ruedy,R.Radiativeforcingandclimateresponse.
+J. Geophys. Res. 102,6831–6864(1997).
+15. Forster,P.M.d.F.,Blackburn,M.,Glover,R.&Shine,K.P.Anexaminationof
+climatesensitivityforidealisedclimatechangeexperimentsinanintermediate
+generalcirculationmodel. Clim. Dynam. 16,833–849(2000).
+16. Shindell,D.&Faluvegi,G.Climater esponsetoregionalradiativeforcing
+duringthe20thcentury. Nature Geosci. 2,294–300(2009).
+17. Joshi,M. et al.Acomparisonofclimateresponsetodiﬀerentradiativeforcings
+inthreegeneralcirculationmodels:towardsanimprovedmetricofclimatechange. Clim. Dynam. 20,
+843–854(2003).
+18. Stuber,N.,Ponater,M.&Sausen,R.Whyradiativeforcingmightfailasa
+predictorofclimatechange. Clim. Dynam. 24,497–510(2005).
+19. Boer,G.&Yu,B.Climatesensitivityandresponse. Clim. Dynam. 20,
+415–429(2003).
+20. Shindell,D. et al.Spatialscalesofclimateresponsetoinhomogeneousradiative
+forcing. J. Geophys. Res. 115,D19110(2010).
+21. Boucher,O.&Reddy,M.S.Climatetrade-oﬀbetweenblackcarbonandcarbon
+dioxideemissions.. Energy Policy 36,193–200(2008).
+22. Morice,C.,Kennedy,J.,Rayner,N.&Jones,P.Quantifyinguncertaintiesin
+globalandregionaltemperaturechangeusinganensembleofobservationalestimates:TheHadCRUT4dataset. J. Geophys. Res. 117,D08101(2012).
+23. Cowtan,K.&Way,R.G.CoveragebiasintheHadCRUT4temperatureseries
+anditsimpactonrecenttemperaturetrends. Q. J. R. Meteorol. Soc.
+http://dx.doi.org/10.1002/qj.2297 (2014).
+24. VanVuuren,D.P. et al.Therepresentativeconcentrationpathways:An
+overview. Climatic Change 109,5–31(2011).
+25. Armour,K.,Bitz,C.&Roe,G.Time-varyingclimatesensitivityfromregional
+feedbacks. J. Clim. 26,4518–4534(2013).
+26. Rogelj,J.,Meinshausen,M.&Knutti,R.Globalwarmingunderoldandnew
+scenariosusingIPCCclimatesensitivityrangeestimates. Nature Clim. Change
+2,248–253(2012).
+27. Smith,S.J.&Mizrahi,A.Near-termclimatemitigationbyshort-livedforcers.
+P r o c .N a t lA c a d .S c i .U S A 110,14202–14206(2013).
+28. Shindell,D. et al.Simultaneouslymitigatingnear-termclimatechangeand
+improvinghumanhealthandfoodsecurity. Science 335,183–189(2012).
+29. Rohling,E. et al.Makingsenseofpalaeoclimatesensitivity. Nature 491,
+683–691(2012).
+30. Shindell,D.T. et al.InteractiveozoneandmethanechemistryinGISS-E2
+historicalandfutureclimatesimulations. Atmos. Chem. Phys. 13,
+2653–2689(2013).
+Acknowledgements
+IacknowledgetheWorldClimateResearchProgramme’sWorkingGrouponCoupled
+ModellingandtheUSDepartmentofEnerg y’sProgramforClimateModelDiagnosis
+andIntercomparison,andIthanktheclimatemodellinggroupsfromCMIPandtheAtmosphericChemistryandClimateModelIntercomparisonProject(listedin
+SupplementaryTable1)formakingavailabletheirmodeloutput.IthankG.Faluvegiand
+G.MillyforassistancewithdataanalysisandUStaxpayersandD.ConsidinefortheirsupportthroughNASA’sModeling,AnalysisandPredictionProgram.
+Additional information
+Supplementaryinformationisavailableinthe onlineversionofthepaper .Reprintsand
+permissionsinformationisavailableonlineat www.nature.com/reprints .
+Competing ﬁnancial interests
+Theauthordeclaresnocompetingfinancialinterests.
+4 NATURE CLIMATE CHANGE | ADVANCE ONLINE PUBLICATION | www.nature.com/natureclimatechange
+© 201/g23 Macmillan Publishers Limited.  All rights reserved.  "
