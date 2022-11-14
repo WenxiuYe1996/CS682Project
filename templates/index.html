@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %} 
+
+<div class="container">
+    <h2>WORD SALAD</h2>
+    <form action="/result" method="POST">
+        <input id="search-bar" type="text" name="ip" />
+        <button class="buttons" type="submit">Search</button>
+    </form>
+</div>
+
+{% block result %} {% endblock %}
+
+{% endblock %}

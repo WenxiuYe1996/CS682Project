@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% block result %} 
+<p> PDF Info </p>
+{% for r in res %}
+<p> {{ r }} </p>
+{% endfor %}
+
+<p> Link </p>
+{% for l in link %}
+<a href = "{{l}}"> {{ l }} </a>
+{% endfor %}
+
+<p> PDF Link </p>
+{% for p in pdf_link %}
+<a href=" {{p}} "> {{p}} </a>
+{% endfor %}
+
+
+{% endblock %}
