@@ -132,29 +132,6 @@ def getText(path):
         text = extractTextFromScannedPDFs(path)
     return text
 
-def cleanText():
-    df = pd.DataFrame(text_list, columns =['text']) 
-    print(df)
-
-    stop = set(stopwords.words('english'))
-    exclude = set(string.punctuation)
-    lemma = WordNetLemmatizer()
-
-    def clean(text):
-        stop_free = ' '.join([word for word in text.lower().split() if word not in stop])
-        punc_free = ''.join(ch for ch in stop_free if ch not in exclude)
-        normalized = ' '.join([lemma.lemmatize(word) for word in punc_free.split()])
-        return normalized.split()
-
-    new_list = []
-    new_list = df['text'].apply(clean)
-
-    df['text_clean'] = df['text'].apply(clean)
-
-    #print(df)
-
-    #df.to_csv(f"/Users/wenxiuye/Desktop/clean_code/csv/data.csv", header=True)
-
 
 
 
