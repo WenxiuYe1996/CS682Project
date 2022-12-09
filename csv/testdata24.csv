@@ -1,80 +1,0 @@
-,text
-0,"manuscript submitted to Geophysical Research Letters
-Equilibrium climate sensitivity estimated by 1
-equilibrating climate models 2
-Maria Rugenstein1;2, Jonah Bloch-Johnson3, Jonathan Gregory3;4, Timothy 3
-Andrews4, Thorsten Mauritsen5, Chao Li2, Thomas L. Fr olicher6;7, David 4
-Paynter8, Gokhan Danabasoglu9, Shuting Yang10, Jean-Louis Dufresne11, Long 5
-Cao12, Gavin A. Schmidt13, Ayako Abe-Ouchi14, Olivier Georoy15, and Reto 6
-Knutti17
-1Institute for Atmospheric and Climate Science, ETH Zurich, CH-8092 Zurich, Switzerland 8
-2Max-Planck-Institute for Meteorology, Bundestrasse 53, 20146 Hamburg, Germany 9
-3NCAS, University of Reading, Reading 10
-4UK Met Oce Hadley Centre, FitzRoy Road, Exeter, EX1 3PB 11
-5Stockholm University, SE-106 91 Stockholm, Sweden 12
-6Climate and Environmental Physics, Physics Institute, University of Bern, Switzerland 13
-7Oeschger Centre for Climate Change Research, University of Bern, Switzerland 14
-8Geophysical Fluid Dynamics Laboratory, Princeton, New Jersey, USA 15
-9National Center for Atmospheric Research, P.O. Box 3000, Boulder, CO 80307 16
-10Danish Meteorological Institute, Lyngbyvej 100, DK-2100 Copenhagen, Denmark 17
-11LMD/IPSL, Centre National de la Recherche Scientique, Sorbonne Universit e, Ecole Normale 18
-Sup erieure, PSL Research University, Ecole Polytechnique, Paris, France 19
-12School of Earth Sciences, Zhejiang University, Hang Zhou, Zhejiang Province, 310027, China 20
-13NASA Goddard Institute for Space Studies, 2880 Broadway, New York, NY 10025 21
-14Atmosphere and Ocean Research Institute, The University of Tokyo, Japan 22
-15Centre National de Recherches M et eorologiques, Universit e de Toulouse, M et eo-France, CNRS, 23
-Toulouse, France 24
-Key Points: 25
-27 simulations of 15 general circulation models are integrated to near equilibrium 26
-All models simulate a higher equilibrium warming than predicted by using extrapo- 27
-lation methods 28
-Tropics and mid-latitudes dominate the change of the feedback parameter on dierent 29
-timescales 30
-Max-Planck-Institute for Meteorology, Bundestrasse 53, 20146 Hamburg, Germany
-Corresponding author: Maria Rugenstein, maria.rugenstein@mpimet.mpg.de
-{1{ 
-This article has been accepted for publication and undergone full peer review but has not 
-been through the copyediting, typesetting, pagination and proofreading process, which may 
-lead to differences between this version and the Version of Record. Please c ite this article 
-as doi: 10.1029/2019GL083898
- 
-©2019 American Geophysical Union. All rights reserved.manuscript submitted to Geophysical Research Letters
-Abstract 31
-The methods to quantify equilibrium climate sensitivity are still debated. We collect 32
-millennial-length simulations of coupled climate models and show that the global mean equi- 33
-librium warming is higher than those obtained using extrapolation methods from shorter 34
-simulations. Specically, 27 simulations with 15 climate models forced with a range of CO 2 35
-concentrations show a median 17% larger equilibrium warming than estimated from the rst 36
-150 years of the simulations. The spatial patterns of radiative feedbacks change continu- 37
-ously, in most regions reducing their tendency to stabilizing the climate. In the equatorial 38
-Pacic, however, feedbacks become more stabilizing with time. The global feedback evo- 39
-lution is initially dominated by the tropics, with eventual substantial contributions from 40
-the mid-latitudes. Time-dependent feedbacks underscore the need of a measure of climate 41
-sensitivity that accounts for the degree of equilibration, so that models, observations, and 42
-paleo proxies can be adequately compared and aggregated to estimate future warming. 43
-1 Estimating equilibrium climate sensitivity 44
-The equilibrium climate sensitivity (ECS) is dened as the global- and time-mean, 45
-surface air warming once radiative equilibrium is reached in response to doubling the atmo- 46
-spheric CO 2concentration above pre-industrial levels. It is by far the most commonly and 47
-continuously applied concept to assess our understanding of the climate system as simulated 48
-in climate models and it is used to compare models, observations, and paleo-proxies (Knutti 49
-et al., 2017; Charney et al., 1979; Houghton et al., 1990; Stocker, 2013). Due to the large 50
-heat capacity of the oceans, the climate system takes millennia to equilibrate to a forcing, 51
-but performing such a long simulation with a climate model is often computationally not 52
-feasible. As a result, many modeling studies use extrapolation methods on short, typically 53
-150-year long, simulations to project equilibrium conditions (Taylor et al., 2011; Andrews 54
-et al., 2012; Collins et al., 2013; Otto et al., 2013; Lewis & Curry, 2015; Andrews et al., 55
-2015; Forster, 2016; Calel & Stainforth, 2017). These so-called eective climate sensitiv- 56
-ities (Murphy, 1995; Gregory et al., 2004) are often reported as ECS values (Hargreaves 57
-& Annan, 2016; Tian, 2015; Brient & Schneider, 2016; Forster, 2016). Research provides 58
-evidence for decadal-to-centennial changes of feedbacks (e.g., Murphy (1995); Senior and 59
-Mitchell (2000); Gregory et al. (2004); Winton et al. (2010); Armour et al. (2013); Prois- 60
-tosescu and Huybers (2017); Paynter et al. (2018)) but the behavior on longer timescales has 61
-{2{
-©2019 American Geophysical Union. All rights reserved.manuscript submitted to Geophysical Research Letters
-Figure 1. Evolution of global and annual mean top of the atmosphere (TOA) imbalance and
-surface temperature anomalies (14 small panels). The rst 150 years of step forcing simulations
-are depicted in light gray. For experiments which are not step forcing simulations only the period
-after stabilizing CO 2concentrations is shown. The black line shows the linear regression of TOA
-imbalance and surface warming for the last 15% of warming. The panel on the lower right shows the
-ratio T best est / T est 1"
