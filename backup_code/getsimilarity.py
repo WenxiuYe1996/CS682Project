@@ -15,20 +15,14 @@ from requests.exceptions import ConnectTimeout
 import urllib.request
 import PyPDF2
 import io
-import re
 import pandas as pd
 import csv
-import os
 import pytesseract
 from pdf2image import convert_from_path
 import shutil
 
-import re
-import os
 import numpy as np
-import pandas as pd
 import nlp
-import csv
 
 # Gensim
 import gensim, spacy, logging, warnings
