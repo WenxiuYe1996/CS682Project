@@ -8,12 +8,10 @@ import PyPDF2
 import csv
 import pandas as pd
 import time
-import os
 import shutil
 from IPython.display import HTML
 from requests.exceptions import ConnectTimeout
 import urllib.request
-import PyPDF2
 import io
 import re
 import pandas as pd
@@ -22,14 +20,8 @@ import os
 import pytesseract
 from pdf2image import convert_from_path
 import shutil
-
-import re
-import os
 import numpy as np
-import pandas as pd
 import nlp
-import csv
-
 # Gensim
 import gensim, spacy, logging, warnings
 import gensim.corpora as corpora
