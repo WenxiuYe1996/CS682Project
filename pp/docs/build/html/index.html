@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+
+<html lang="python">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Usage &#8212; word salad ... documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h1>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h2>
+<p>To use this API, plese install python3 and the requirement libraries.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip3 install -r requirements.txt
+</pre></div>
+</div>
+</section>
+<section id="to-start-the-api">
+<h2>To start the API<a class="headerlink" href="#to-start-the-api" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span><span class="nb">cd</span> api
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python3 app.p
+</pre></div>
+</div>
+</section>
+</section>
+<section id="endpoints-for-this-api">
+<h1>Endpoints for this API<a class="headerlink" href="#endpoints-for-this-api" title="Permalink to this heading">¶</a></h1>
+<section id="endpoint-search">
+<h2>Endpoint: search<a class="headerlink" href="#endpoint-search" title="Permalink to this heading">¶</a></h2>
+<p>To download the files from NASA website you can use the endpoint /search given a topic.</p>
+<p><code class="docutils literal notranslate"><span class="pre">search(userInputTopic,</span> <span class="pre">lang=&quot;en&quot;):</span></code> function:</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="search">
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">userInputTopic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a link to the path of files as strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>userInputTopic</strong> -- user input topic.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The ingredients list.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="endpoint-extractinfofrompaper">
+<h2>Endpoint: extractInfoFromPaper<a class="headerlink" href="#endpoint-extractinfofrompaper" title="Permalink to this heading">¶</a></h2>
+<p>To extract text and images from papers you can use the /extractInfoFromPaper endpoint</p>
+<p><code class="docutils literal notranslate"><span class="pre">extractInfoFromPaper</span> <span class="pre">(userInputTopic,</span> <span class="pre">lang=&quot;en&quot;):</span></code> function:</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="extractInfoFromPaper">
+<span class="sig-name descname"><span class="pre">extractInfoFromPaper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">userInputTopic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#extractInfoFromPaper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of link to the path of pdf and text and images as strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>userInputTopic</strong> -- user input topic.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The ingredients list.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="endpoint-findtopicforpapers">
+<h2>Endpoint: findTopicForPapers<a class="headerlink" href="#endpoint-findtopicforpapers" title="Permalink to this heading">¶</a></h2>
+<p>To find the topic of the papers you can use the /findTopicForPapers endpoint</p>
+<p><code class="docutils literal notranslate"><span class="pre">findTopicForPapers(userInputTopic,</span> <span class="pre">lang=&quot;en&quot;):</span></code> function:</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="findTopicForPapers">
+<span class="sig-name descname"><span class="pre">findTopicForPapers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">userInputTopic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#findTopicForPapers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of link to the path of pdf and text and images as strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>userInputTopic</strong> -- user input topic.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The ingredients list.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">word salad</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Wenxiu Ye.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
