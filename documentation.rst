@@ -65,7 +65,7 @@ Endpoint: /search
 To download the files from NASA website, use the /search endpoint with a given topic. 
 This endpoint will search the NASA's website based on the user's input topic and download all the files found.
 
-``search(userInputTopic, lang="en"):`` function:
+``search(userInputTopic):`` function:
 
    This funciton will perform a search on NASA's website and all files found will be downloaded.
    Once all the files are downloaded, a csv file with three columns will be generated as well as a HTML verison of it; |br|
