@@ -217,7 +217,7 @@ To find the topic of a paper you can use the /getTopic endpoint.
    
    For a given user input article link, this function will extract text from the file and build a lda model to get the topic of it.
 
-.. py:function:: findTopicForPapers(userInputTopic, lang="en")
+.. py:function:: findTopicForPapers(userInputTopic)
 
    Return a path to the generated csv file 
 
@@ -239,7 +239,7 @@ To find the similarity between two papers you can use the /getsimilarity endpoin
    It will first extract text from the file and build a doc2vec model using the text.
    Then it will find the similarity between two documents using the function from doc2vec model.
 
-.. py:function:: findTopicForPapers(userInputTopic, lang="en")
+.. py:function:: findTopicForPapers(userInputTopic)
 
    Return a path to the generated csv file 
 
@@ -253,7 +253,7 @@ To find the similarity between two papers you can use the /getsimilarity endpoin
    
    For a given user input article link, this function will extract images from the file and save it under img directory.
 
-.. py:function:: findTopicForPapers(userInputTopic, lang="en")
+.. py:function:: findTopicForPapers(userInputTopic)
 
    Return a path to image directory
 
