@@ -17,9 +17,6 @@ import io
 import csv
 import pytesseract
 from pdf2image import convert_from_path
-import shutil
-
-import re
 import os
 import pandas as pd
 import nlp
