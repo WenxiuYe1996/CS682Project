@@ -1,3 +1,6 @@
+Project2: Word Salad
+====================
+
 Clien's Concern:
 ================
 With the ever evolving space that is climate change, there is a vast amount of data that is used across disciplines. 
@@ -6,6 +9,7 @@ NGOs, corporations and individuals should have the opportunity to have access to
 As the volume of technical and scientific publications increase across academia, industry, and governmental sources, the task of collecting relevant data on a particular topic of interest becomes increasingly onerous. 
 Machine learning models leveraging natural language processing techniques offer an opportunity to extract meaningful information with semantic similarities rather than simple spelling. 
 Visualizations of an embedded space of results could also be useful in determining outliers making spurious claims.
+
 
 Project implementation:
 =======================
